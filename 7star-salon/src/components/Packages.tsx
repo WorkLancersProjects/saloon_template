@@ -3,11 +3,13 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { Check } from "lucide-react";
+import { Check, BadgePercent, IndianRupee } from "lucide-react";
 import { packagesData } from "@/data/packages";
 
 function PackageCard({ pkg, delay }: { pkg: (typeof packagesData)[0]; delay: number }) {
-  const pct = Math.round(((pkg.oldPrice - pkg.newPrice) / pkg.oldPrice) * 100);
+  const pct      = Math.round(((pkg.oldPrice - pkg.newPrice) / pkg.oldPrice) * 100);
+  const savings  = pkg.oldPrice - pkg.newPrice;
+  const featured = !!pkg.popular;
 
   return (
     <motion.div
@@ -16,7 +18,12 @@ function PackageCard({ pkg, delay }: { pkg: (typeof packagesData)[0]; delay: num
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay }}
       className="card overflow-hidden"
-      style={{ borderRadius: "12px", outline: pkg.popular ? "2px solid #234E70" : "none" }}
+      style={{
+        borderRadius: "12px",
+        background: featured ? "#234E70" : "#fff",
+        border: featured ? "1px solid transparent" : "1px solid #E5E7EB",
+        boxShadow: featured ? "0 24px 48px rgba(35,78,112,0.2)" : "none",
+      }}
     >
       {/* Image */}
       <div className="relative overflow-hidden bg-[#E8E4DE]" style={{ aspectRatio: "16/9" }}>
@@ -28,51 +35,56 @@ function PackageCard({ pkg, delay }: { pkg: (typeof packagesData)[0]; delay: num
           sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
         />
         <div
-          className="absolute top-3 right-3 text-white text-[10px] font-bold px-2.5 py-1 rounded-full font-body"
-          style={{ background: "#7e1d1dff" }}
+          className="absolute top-3 right-3 flex items-center gap-1 rounded-full font-body text-xs font-bold px-3 py-1.5"
+          style={{ background: "#C6A15B", color: "#1a3a55" }}
         >
-          {pct}% off
+          <BadgePercent className="w-3.5 h-3.5" />
+          {pct}% OFF
         </div>
-        {pkg.tag && (
-          <div
-            className="absolute top-3 left-3 text-white text-[10px] font-medium px-2.5 py-1 rounded-full font-body"
-            style={{ background: "#234E70" }}
-          >
-            {pkg.tag}
-          </div>
-        )}
       </div>
 
-      {/* Body */}
+      {/* Body — inverted palette on the featured card */}
       <div className="p-7">
-        <h3 className="font-heading font-semibold text-lg mb-1.5" style={{ color: "#234E70" }}>
+        {featured && (
+          <p
+            className="font-body text-[11px] font-semibold uppercase tracking-[0.22em] mb-3"
+            style={{ color: "rgba(255,255,255,0.5)" }}
+          >
+            {pkg.tag ?? "Most Popular"}
+          </p>
+        )}
+        <h3 className="font-heading font-semibold text-2xl mb-2" style={{ color: featured ? "#fff" : "#234E70" }}>
           {pkg.title}
         </h3>
-        <p className="text-xs font-body mb-5" style={{ color: "#9CA3AF" }}>{pkg.description}</p>
+        <p className="text-xs font-body mb-5" style={{ color: featured ? "#C9D9E8" : "#9CA3AF" }}>
+          {pkg.description}
+        </p>
 
         <ul className="space-y-2 mb-6">
           {pkg.includes.map((item) => (
-            <li key={item} className="flex items-center gap-2.5 text-xs font-body" style={{ color: "#6B7280" }}>
+            <li key={item} className="flex items-center gap-2.5 text-xs font-body" style={{ color: featured ? "#DCE7F1" : "#6B7280" }}>
               <Check className="w-3.5 h-3.5 shrink-0" style={{ color: "#C6A15B" }} />
               {item}
             </li>
           ))}
         </ul>
 
-        <div className="flex items-end justify-between pt-5 border-t" style={{ borderColor: "#E5E7EB" }}>
-          <div>
-            <span className="text-xs line-through font-body" style={{ color: "#9CA3AF" }}>
-              ₹{pkg.oldPrice.toLocaleString()}
+        <div className="flex items-end justify-between gap-3 pt-5 border-t" style={{ borderColor: featured ? "rgba(255,255,255,0.16)" : "#E5E7EB" }}>
+          <div className="min-w-0">
+            <span className="block text-xs line-through font-body" style={{ color: featured ? "rgba(255,255,255,0.55)" : "#9CA3AF" }}>
+              ₹{pkg.oldPrice.toLocaleString("en-IN")}
             </span>
-            <p className="font-heading font-bold text-2xl" style={{ color: "#234E70" }}>
-              ₹{pkg.newPrice.toLocaleString()}
+            <p className="font-heading font-bold text-3xl leading-none mt-1 flex items-center" style={{ color: featured ? "#fff" : "#234E70" }}>
+              <IndianRupee className="w-4 h-4" />{pkg.newPrice.toLocaleString("en-IN")}
             </p>
           </div>
-          <div className="text-right">
-            <span className="text-xs font-body block" style={{ color: "#9CA3AF" }}>You save</span>
-            <span className="font-bold text-sm font-body" style={{ color: "#059669" }}>
-              ₹{(pkg.oldPrice - pkg.newPrice).toLocaleString()}
-            </span>
+          <div className="shrink-0 rounded-xl px-4 py-2.5 text-right" style={{ background: featured ? "rgba(255,255,255,0.12)" : "#ECFDF5" }}>
+            <p className="text-[9px] font-body font-semibold uppercase tracking-wider" style={{ color: featured ? "#A7F3D0" : "#059669" }}>
+              You save
+            </p>
+            <p className="font-heading font-bold text-xl leading-none mt-1 flex items-center justify-end" style={{ color: featured ? "#6EE7B7" : "#059669" }}>
+              <IndianRupee className="w-3.5 h-3.5" />{savings.toLocaleString("en-IN")}
+            </p>
           </div>
         </div>
       </div>

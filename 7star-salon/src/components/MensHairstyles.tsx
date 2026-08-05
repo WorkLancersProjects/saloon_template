@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import HairstyleCard from "./HairstyleCard";
 import HairstyleLightbox from "./HairstyleLightbox";
 import { mensHairstyles, type Hairstyle } from "@/data/hairstyles";
@@ -13,12 +14,15 @@ export default function MensHairstyles() {
   const inView = useInView(ref, { once: true });
 
   const [filter, setFilter] = useState("All");
+  const [showAll, setShowAll] = useState(false);
   const [active, setActive] = useState<Hairstyle | null>(null);
 
   const filtered =
     filter === "All"
       ? mensHairstyles
       : mensHairstyles.filter((h) => h.tags.includes(filter));
+
+  const visible = showAll ? filtered : filtered.slice(0, 8);
 
 
   return (
@@ -180,7 +184,7 @@ export default function MensHairstyles() {
           >
 
             {
-              filtered.map((h, i) => (
+              visible.map((h, i) => (
 
                 <HairstyleCard
 
@@ -197,9 +201,47 @@ export default function MensHairstyles() {
               ))
             }
 
-
           </div>
 
+
+
+
+
+          {/* Show more / Show less */}
+
+          {
+            filtered.length > 8 && (
+
+              <div className="mt-12 flex justify-center">
+
+                <button
+
+                  onClick={() =>
+                    setShowAll(!showAll)
+                  }
+
+                  className="btn-ghost"
+
+                  aria-expanded={showAll}
+
+                >
+
+                  {showAll ? "Show less" : "Show more"}
+
+                  <ChevronDown
+                    className="w-4 h-4"
+                    style={{
+                      transform: showAll ? "rotate(180deg)" : "none",
+                      transition: "transform 0.3s ease",
+                    }}
+                  />
+
+                </button>
+
+              </div>
+
+            )
+          }
 
 
 
@@ -240,7 +282,7 @@ export default function MensHairstyles() {
 
         hairstyle={active}
 
-        all={filtered}
+        all={visible}
 
         onClose={() =>
           setActive(null)

@@ -1,5 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+
+/*
+ * Design tokens — single source of truth for fonts & colours.
+ * Mirrors src/config/theme.ts (fonts + colors). Colours are refactored later.
+ */
+@theme {
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+
+  --color-primary: #234E70;
+  --color-primary-dark: #1a3a55;
+  --color-accent: #C6A15B;
+  --color-background: #FAF7F0;
+  --color-background-blue: #EEF5FA;
+  --color-card: #FFFFFF;
+  --color-text: #1F2937;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+}
 
 :root {
   --brand:   #234E70;
@@ -13,8 +32,6 @@
   --border:  #E5E7EB;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -22,13 +39,13 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-body);
   background: #FAF7F0;
   color: #1F2937;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+h1, h2, h3, h4, h5 { font-family: var(--font-heading); }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
@@ -42,7 +59,7 @@ h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
 
 /* Label */
 .label {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.22em;
@@ -52,7 +69,7 @@ h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
 
 /* Headings */
 .h-xl {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 700;
   color: #1F2937;
@@ -60,7 +77,7 @@ h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
   letter-spacing: -0.02em;
 }
 .h-lg {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3vw, 2.6rem);
   font-weight: 700;
   color: #1F2937;
@@ -68,7 +85,7 @@ h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
   letter-spacing: -0.02em;
 }
 .h-md {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.2rem, 2vw, 1.45rem);
   font-weight: 600;
   color: #1F2937;
@@ -81,46 +98,48 @@ h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
 .rule-left   { margin: 16px 0 0; }
 
 /* Primary button */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #234E70;
-  color: #fff;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  padding: 13px 30px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-.btn:hover {
-  background: #1a3a55;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(35,78,112,0.22);
-}
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #234E70;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 13px 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .btn:hover {
+    background: #1a3a55;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(35,78,112,0.22);
+  }
 
-/* Ghost button */
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  color: #234E70;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  padding: 12px 30px;
-  border: 1.5px solid #234E70;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
+  /* Ghost button */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #234E70;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 12px 30px;
+    border: 1.5px solid #234E70;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .btn-ghost:hover { background: #234E70; color: #fff; }
 }
-.btn-ghost:hover { background: #234E70; color: #fff; }
 
 /* Card */
 .card {
@@ -148,7 +167,7 @@ h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
   border: 1.5px solid #E5E7EB;
   border-radius: 4px;
   padding: 11px 15px;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.875rem;
   color: #1F2937;
   outline: none;

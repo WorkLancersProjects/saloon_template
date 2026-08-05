@@ -17,7 +17,7 @@ export const contactData = {
   whatsapp: "+919876543210",
   whatsappMessage: "Hi! I'd like to book an appointment at 7Star Salon.",
   social: {
-    instagram: "https://instagram.com/7starsalon",
+    instagram: "https://www.instagram.com/7_star_family_saloon/",
     facebook: "https://facebook.com/7starsalon",
     youtube: "https://youtube.com/@7starsalon",
     twitter: "https://twitter.com/7starsalon",

@@ -1,18 +1,176 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { ComponentType, CSSProperties } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, ChevronDown } from "lucide-react";
+import {
+  X,
+  ChevronDown,
+  Scissors,
+  Brush,
+  Bath,
+  Sparkles,
+  Leaf,
+  Sun,
+  Droplets,
+  CircleDot,
+  Flower,
+} from "lucide-react";
 import { bridalCategories } from "@/data/bridalServices";
+import type { BridalCategory } from "@/data/bridalServices";
+
+type IconType = ComponentType<{ className?: string; style?: CSSProperties }>;
+
+const CATEGORY_ICONS: Record<string, IconType> = {
+  "hair-styling": Scissors,
+  makeup: Brush,
+  "body-care": Bath,
+  beauty: Sparkles,
+  bleach: Leaf,
+  detan: Sun,
+  cleanup: Droplets,
+  threading: CircleDot,
+  waxing: Flower,
+};
+
+function catCount(cat: BridalCategory): number {
+  const services = cat.services?.length ?? 0;
+  const subRows = cat.subCategories?.reduce((n, s) => n + s.rows.length, 0) ?? 0;
+  return services + subRows;
+}
+
+// ── Compact menu table (used for bleach / waxing grids) ──────────────────────
+function MenuTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
+  return (
+    <div className="rounded-xl border border-[#E5E7EB] overflow-hidden">
+      <div className="flex items-center px-4 sm:px-5 py-2.5 bg-[#EEF5FA]">
+        {headers.map((h, i) => (
+          <span
+            key={h}
+            className={`font-body text-[10px] font-semibold uppercase tracking-wider text-[#234E70] ${
+              i === 0 ? "flex-1 text-left" : "w-24 sm:w-28 text-right"
+            } ${i > 0 ? "pl-3" : ""}`}
+          >
+            {h}
+          </span>
+        ))}
+      </div>
+      {rows.map((r, ri) => (
+        <div
+          key={ri}
+          className={`flex items-center px-4 sm:px-5 py-3 ${
+            ri % 2 === 0 ? "bg-white" : "bg-[#FAF7F0]"
+          } border-t border-[#F3F4F6]`}
+        >
+          {r.map((cell, ci) => (
+            <span
+              key={ci}
+              className={`font-body text-sm ${
+                ci === 0
+                  ? "flex-1 text-left text-[#1F2937]"
+                  : "w-24 sm:w-28 text-right font-semibold text-[#234E70]"
+              } ${ci > 0 ? "pl-3" : ""}`}
+            >
+              {cell}
+            </span>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ── Active category content ──────────────────────────────────────────────────
+function CategoryContent({ cat }: { cat: BridalCategory }) {
+  const Icon = CATEGORY_ICONS[cat.id] ?? Sparkles;
+  const count = catCount(cat);
+  const subs = cat.subCategories ?? [];
+  const hasTwoPrices = subs.some((s) => s.rows.some((r) => r.price2));
+
+  return (
+    <div>
+      {/* Category header */}
+      <div className="flex items-center gap-3 mb-6">
+        <span
+          className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+          style={{ background: "rgba(198,161,91,0.12)" }}
+        >
+          <Icon className="w-5 h-5" style={{ color: "#C6A15B" }} />
+        </span>
+        <div>
+          <h3 className="font-heading font-semibold text-xl leading-tight text-[#234E70]">{cat.title}</h3>
+          <p className="font-body text-xs mt-0.5 text-[#9CA3AF]">
+            {count} {count === 1 ? "service" : "services"}
+          </p>
+        </div>
+      </div>
+
+      {/* Standard services — dotted leader list */}
+      {cat.services.length > 0 && (
+        <div className="mb-7">
+          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.18em] mb-2 text-[#9CA3AF]">
+            Services &amp; Rates
+          </p>
+          <div>
+            {cat.services.map((s, i) => (
+              <div
+                key={s.name}
+                className={`flex items-baseline gap-3 py-2.5 ${i > 0 ? "border-t border-[#F3F4F6]" : ""}`}
+              >
+                <span className="text-[15px] font-body leading-snug text-[#1F2937]">{s.name}</span>
+                <span className="flex-1 border-b border-dotted border-[#D3DAE2]" />
+                <span className="text-[15px] font-semibold font-body whitespace-nowrap text-[#234E70]">
+                  {s.price}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Sub-category grids */}
+      {subs.length > 0 && (
+        <div>
+          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.18em] mb-3 text-[#9CA3AF]">
+            Services &amp; Rates
+          </p>
+          {hasTwoPrices ? (
+            <MenuTable
+              headers={["Service", "Honey Wax", "Rice Wax"]}
+              rows={subs.flatMap((s) => s.rows).map((r) => [r.label, r.price, r.price2 ?? "—"])}
+            />
+          ) : (
+            (() => {
+              const brands = Array.from(new Set(subs.flatMap((s) => s.rows.map((r) => r.label))));
+              return (
+                <MenuTable
+                  headers={["Area", ...brands]}
+                  rows={subs.map((s) => [
+                    s.title,
+                    ...brands.map((b) => s.rows.find((r) => r.label === b)?.price ?? "—"),
+                  ])}
+                />
+              );
+            })()
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
 
 // ── Bridal Services Modal ────────────────────────────────────────────────────
 function BridalModal({ onClose }: { onClose: () => void }) {
   const [activeId, setActiveId] = useState(bridalCategories[0].id);
   const active = bridalCategories.find((c) => c.id === activeId)!;
 
-  // lock scroll
-  useState(() => { document.body.style.overflow = "hidden"; return () => { document.body.style.overflow = ""; }; });
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   return (
     <motion.div
@@ -31,41 +189,87 @@ function BridalModal({ onClose }: { onClose: () => void }) {
         exit={{ y: 40, opacity: 0 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         onClick={(e) => e.stopPropagation()}
-        className="relative bg-white w-full sm:max-w-3xl max-h-[92vh] sm:max-h-[85vh] rounded-t-2xl sm:rounded-2xl overflow-hidden flex flex-col"
+        className="relative bg-white w-full sm:max-w-4xl h-[94vh] sm:h-[88vh] rounded-t-2xl sm:rounded-2xl overflow-hidden flex flex-col"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-7 py-5 border-b border-[#E5E7EB] shrink-0">
-          <div>
-            <h2 className="font-heading font-bold text-[#234E70] text-xl">Bridal Collection</h2>
-            <p className="text-[#9CA3AF] text-xs font-body mt-0.5">Complete bridal service menu</p>
+        <div className="shrink-0 px-6 sm:px-8 py-5" style={{ background: "#234E70" }}>
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="font-body text-[10px] font-semibold uppercase tracking-[0.24em] mb-1 text-[#C6A15B]">
+                Bridal Studio
+              </p>
+              <h2 className="font-heading font-semibold text-white text-2xl leading-tight">Bridal Collection</h2>
+              <p className="font-body text-xs mt-1 text-white/60">Complete service menu with indicative rates</p>
+            </div>
+            <button
+              onClick={onClose}
+              aria-label="Close"
+              className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors shrink-0"
+            >
+              <X className="w-4 h-4 text-white" />
+            </button>
           </div>
-          <button
-            onClick={onClose}
-            className="w-9 h-9 rounded-full bg-[#FAF7F0] hover:bg-[#E5E7EB] flex items-center justify-center transition-colors"
-            aria-label="Close"
-          >
-            <X className="w-4 h-4 text-[#1F2937]" />
-          </button>
         </div>
 
-        <div className="flex flex-1 overflow-hidden">
-          {/* Sidebar — category tabs */}
-          <div className="w-40 sm:w-48 bg-[#FAF7F0] border-r border-[#E5E7EB] overflow-y-auto shrink-0 no-scrollbar">
-            {bridalCategories.map((cat) => (
+        {/* Mobile tab strip */}
+        <div className="sm:hidden flex gap-2 overflow-x-auto no-scrollbar px-4 py-3 border-b border-[#E5E7EB] bg-[#FAF7F0] shrink-0">
+          {bridalCategories.map((cat) => {
+            const isActive = activeId === cat.id;
+            const Icon = CATEGORY_ICONS[cat.id] ?? Sparkles;
+            return (
               <button
                 key={cat.id}
                 onClick={() => setActiveId(cat.id)}
-                className={`w-full text-left px-4 py-3.5 text-xs font-body font-medium transition-all border-l-2 ${
-                  activeId === cat.id
-                    ? "border-[#234E70] bg-white text-[#234E70]"
-                    : "border-transparent text-[#6B7280] hover:text-[#234E70] hover:bg-white/60"
-                }`}
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-full font-body text-xs font-medium whitespace-nowrap transition-colors"
+                style={{
+                  background: isActive ? "#234E70" : "#fff",
+                  color: isActive ? "#fff" : "#4B5A6A",
+                  boxShadow: isActive ? "0 6px 14px rgba(35,78,112,0.25)" : "inset 0 0 0 1px #E5E7EB",
+                }}
               >
-                <span className="block text-base mb-0.5">{cat.icon}</span>
+                <Icon className="w-3.5 h-3.5" style={{ color: isActive ? "#C6A15B" : "#8A97A6" }} />
                 {cat.title}
               </button>
-            ))}
-          </div>
+            );
+          })}
+        </div>
+
+        <div className="flex flex-1 overflow-hidden">
+          {/* Sidebar — desktop category nav */}
+          <aside className="hidden sm:flex flex-col w-56 bg-[#FAF7F0] border-r border-[#E5E7EB] overflow-y-auto no-scrollbar p-3 gap-1 shrink-0">
+            {bridalCategories.map((cat) => {
+              const isActive = activeId === cat.id;
+              const Icon = CATEGORY_ICONS[cat.id] ?? Sparkles;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveId(cat.id)}
+                  className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-left transition-all hover:bg-white/70"
+                  style={{
+                    background: isActive ? "#234E70" : "transparent",
+                    boxShadow: isActive ? "0 8px 20px rgba(35,78,112,0.22)" : "none",
+                  }}
+                >
+                  <Icon
+                    className="w-4 h-4 shrink-0"
+                    style={{ color: isActive ? "#C6A15B" : "#8A97A6" }}
+                  />
+                  <span
+                    className="flex-1 font-body text-sm font-medium"
+                    style={{ color: isActive ? "#fff" : "#4B5A6A" }}
+                  >
+                    {cat.title}
+                  </span>
+                  <span
+                    className="font-body text-[10px] font-semibold"
+                    style={{ color: isActive ? "rgba(255,255,255,0.55)" : "#A9B4C0" }}
+                  >
+                    {catCount(cat)}
+                  </span>
+                </button>
+              );
+            })}
+          </aside>
 
           {/* Content */}
           <div className="flex-1 overflow-y-auto no-scrollbar">
@@ -76,101 +280,17 @@ function BridalModal({ onClose }: { onClose: () => void }) {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -12 }}
                 transition={{ duration: 0.2 }}
-                className="p-6"
+                className="p-6 sm:p-8"
               >
-                <div className="flex items-center gap-2 mb-5">
-                  <span className="text-2xl">{active.icon}</span>
-                  <h3 className="font-heading font-semibold text-[#234E70] text-lg">{active.title}</h3>
-                </div>
-
-                {/* Standard services list */}
-                {active.services.length > 0 && (
-                  <div className="mb-6">
-                    {/* Table header */}
-                    <div className="flex items-center justify-between px-4 py-2 bg-[#EEF5FA] rounded-t-lg">
-                      <span className="text-[#234E70] text-[10px] font-body font-semibold uppercase tracking-wider">Service</span>
-                      <span className="text-[#234E70] text-[10px] font-body font-semibold uppercase tracking-wider">Price</span>
-                    </div>
-                    <div className="border border-[#E5E7EB] border-t-0 rounded-b-lg overflow-hidden">
-                      {active.services.map((s, i) => (
-                        <div
-                          key={s.name}
-                          className={`flex items-center justify-between px-4 py-3.5 ${
-                            i % 2 === 0 ? "bg-white" : "bg-[#FAF7F0]"
-                          } border-b border-[#F3F4F6] last:border-0`}
-                        >
-                          <span className="text-sm font-body text-[#1F2937]">{s.name}</span>
-                          <span className="text-sm font-semibold font-body text-[#234E70] ml-4 text-right">{s.price}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Sub-categories (Bleach / Waxing) */}
-                {active.subCategories && active.subCategories.map((sub, si) => (
-                  <div key={si} className="mb-5">
-                    {sub.title && (
-                      <p className="text-[#234E70] text-xs font-body font-semibold uppercase tracking-widest mb-2 mt-4">
-                        {sub.title}
-                      </p>
-                    )}
-                    {/* Waxing has 2 price columns */}
-                    {sub.rows[0]?.price2 ? (
-                      <>
-                        <div className="flex items-center px-4 py-2 bg-[#EEF5FA] rounded-t-lg">
-                          <span className="flex-1 text-[#234E70] text-[10px] font-body font-semibold uppercase tracking-wider">Service</span>
-                          <span className="w-24 text-right text-[#234E70] text-[10px] font-body font-semibold uppercase tracking-wider">Honey Wax</span>
-                          <span className="w-24 text-right text-[#234E70] text-[10px] font-body font-semibold uppercase tracking-wider">Rice Wax</span>
-                        </div>
-                        <div className="border border-[#E5E7EB] border-t-0 rounded-b-lg overflow-hidden">
-                          {sub.rows.map((r, ri) => (
-                            <div
-                              key={r.label}
-                              className={`flex items-center px-4 py-3 ${
-                                ri % 2 === 0 ? "bg-white" : "bg-[#FAF7F0]"
-                              } border-b border-[#F3F4F6] last:border-0`}
-                            >
-                              <span className="flex-1 text-sm font-body text-[#1F2937]">{r.label}</span>
-                              <span className="w-24 text-right text-sm font-semibold font-body text-[#234E70]">{r.price}</span>
-                              <span className="w-24 text-right text-sm font-semibold font-body text-[#234E70]">{r.price2}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        {sub.title && (
-                          <div className="flex items-center justify-between px-4 py-2 bg-[#EEF5FA] rounded-t-lg">
-                            <span className="text-[#234E70] text-[10px] font-body font-semibold uppercase tracking-wider">Type</span>
-                            <span className="text-[#234E70] text-[10px] font-body font-semibold uppercase tracking-wider">Price</span>
-                          </div>
-                        )}
-                        <div className={`border border-[#E5E7EB] ${sub.title ? "border-t-0 rounded-b-lg" : "rounded-lg"} overflow-hidden`}>
-                          {sub.rows.map((r, ri) => (
-                            <div
-                              key={r.label}
-                              className={`flex items-center justify-between px-4 py-3 ${
-                                ri % 2 === 0 ? "bg-white" : "bg-[#FAF7F0]"
-                              } border-b border-[#F3F4F6] last:border-0`}
-                            >
-                              <span className="text-sm font-body text-[#1F2937]">{r.label}</span>
-                              <span className="text-sm font-semibold font-body text-[#234E70]">{r.price}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </div>
-                ))}
+                <CategoryContent cat={active} />
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="px-7 py-4 border-t border-[#E5E7EB] bg-[#FAF7F0] shrink-0">
-          <p className="text-[#9CA3AF] text-xs font-body text-center">
+        <div className="shrink-0 px-6 sm:px-8 py-4 border-t border-[#E5E7EB] bg-[#FAF7F0]">
+          <p className="font-body text-xs text-center text-[#9CA3AF]">
             Prices are indicative. Book a consultation for a personalised quote.
           </p>
         </div>
@@ -232,7 +352,7 @@ export default function Bridal() {
               </p>
 
               {/* Service highlights */}
-              <ul className="space-y-3 mb-10">
+              <ul className="space-y-3.5 mb-10">
                 {[
                   "Bridal Makeup (HD & Airbrush)",
                   "Reception & Engagement Makeup",
@@ -241,8 +361,8 @@ export default function Bridal() {
                   "Pre-Bridal Package",
                   "Body Care & Beauty Services",
                 ].map((s) => (
-                  <li key={s} className="flex items-center gap-3 text-sm font-body text-[#1F2937]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C6A15B] shrink-0" />
+                  <li key={s} className="flex items-center gap-3.5 font-body text-base font-medium leading-snug text-[#1F2937]">
+                    <span className="w-2 h-2 rotate-45 shrink-0" style={{ background: "#C6A15B" }} />
                     {s}
                   </li>
                 ))}

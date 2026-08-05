@@ -1,10 +1,10 @@
 export const ownerData = {
   name: "Rahul Sharma",
   title: "Master Stylist & Founder",
-  experience: "15+ Years",
+  experience: "25+ Years",
   photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
   description:
-    "With over 15 years of experience transforming looks and building confidence, Rahul Sharma has established 7Star Salon as the premier destination for luxury hair and beauty services. Trained at prestigious academies in Mumbai and London, he brings international techniques to every client.",
+    "With over 25 years of experience transforming looks and building confidence, Rahul Sharma has established 7Star Salon as the premier destination for luxury hair and beauty services. Trained at prestigious academies in Mumbai and London, he brings international techniques to every client.",
   biography:
     "Rahul began his journey in the art of hair styling at the age of 18, apprenticing under renowned stylists across India. After completing advanced training programs in Mumbai, Delhi, and London, he returned with a vision — to create a world-class salon experience that rivals international luxury brands, right here at home.",
   awards: [

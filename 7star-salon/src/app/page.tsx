@@ -20,7 +20,6 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <WhyChooseUs />
         <div id="hairstyles">
           <MensHairstyles />
           <WomensHairstyles />
@@ -28,6 +27,7 @@ export default function Home() {
         <Services />
         <Packages />
         <Bridal />
+        {/* <WhyChooseUs /> */}
         <Gallery />
         <Owner />
         <Testimonials />
