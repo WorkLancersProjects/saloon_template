@@ -58,7 +58,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 group"
                 >
-                  <div className="w-11 h-11 rounded-lg flex items-center justify-center border shrink-0 transition-all duration-200 group-hover:border-[#234E70] group-hover:bg-[#EEF5FA]"
+                  <div className="w-11 h-11 rounded-lg flex items-center justify-center border shrink-0 transition-all duration-200 group-hover:border-primary group-hover:bg-background-blue"
                     style={{ border: "1px solid #E5E7EB", background: "#FAF7F0" }}>
                     <c.icon className="w-4 h-4" style={{ color: "#234E70" }} />
                   </div>
