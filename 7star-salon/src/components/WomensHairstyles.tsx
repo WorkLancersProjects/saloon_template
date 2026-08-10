@@ -14,6 +14,7 @@ export default function WomensHairstyles() {
   const inView  = useInView(ref, { once: true });
   const [filter, setFilter] = useState("All");
   const [showAll, setShowAll] = useState(false);
+  const btnRef = useRef<HTMLButtonElement>(null);
   const [active, setActive] = useState<Hairstyle | null>(null);
 
   const filtered = filter === "All"
@@ -69,7 +70,17 @@ export default function WomensHairstyles() {
           {filtered.length > 8 && (
             <div className="mt-12 flex justify-center">
               <button
-                onClick={() => setShowAll(!showAll)}
+                ref={btnRef}
+                onClick={() => {
+                  if (showAll) {
+                    setShowAll(false);
+                    requestAnimationFrame(() => {
+                      btnRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                    });
+                  } else {
+                    setShowAll(true);
+                  }
+                }}
                 className="btn-ghost"
                 aria-expanded={showAll}
               >

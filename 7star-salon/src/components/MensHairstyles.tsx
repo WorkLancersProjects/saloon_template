@@ -15,6 +15,7 @@ export default function MensHairstyles() {
 
   const [filter, setFilter] = useState("All");
   const [showAll, setShowAll] = useState(false);
+  const btnRef = useRef<HTMLButtonElement>(null);
   const [active, setActive] = useState<Hairstyle | null>(null);
 
   const filtered =
@@ -27,7 +28,7 @@ export default function MensHairstyles() {
 
   return (
     <>
-      <section className="section bg-[#FAF7F0]">
+      <section className="section bg-background">
 
         <div className="wrap">
 
@@ -115,8 +116,7 @@ export default function MensHairstyles() {
               {
                 TAGS.map((tag) => (
 
-                  <button
-
+                <button
                     key={tag}
 
                     onClick={() =>
@@ -215,15 +215,19 @@ export default function MensHairstyles() {
               <div className="mt-12 flex justify-center">
 
                 <button
-
-                  onClick={() =>
-                    setShowAll(!showAll)
-                  }
-
+                  ref={btnRef}
+                  onClick={() => {
+                    if (showAll) {
+                      setShowAll(false);
+                      requestAnimationFrame(() => {
+                        btnRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                      });
+                    } else {
+                      setShowAll(true);
+                    }
+                  }}
                   className="btn-ghost"
-
                   aria-expanded={showAll}
-
                 >
 
                   {showAll ? "Show less" : "Show more"}

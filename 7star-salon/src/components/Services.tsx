@@ -1,48 +1,40 @@
 "use client";
 
-import { useRef, useState, type ComponentType, type CSSProperties } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import {
-  X, Clock, ArrowRight, IndianRupee, ChevronDown,
-  Scissors, Palette, Sparkles, Sun, Droplets, Leaf, Flower, Gift,
-  Wand2, Paintbrush, Feather, Target, Hand, Footprints, Baby,
-} from "lucide-react";
+import { X, ArrowRight, IndianRupee, ChevronDown } from "lucide-react";
 import { servicesData, type ServiceCategory } from "@/data/services";
 
-type IconType = ComponentType<{ className?: string; style?: CSSProperties }>;
-
-/* Aesthetic line icons per category — replaces the old emoji glyphs */
-const CATEGORY_ICONS: Record<string, IconType> = {
-  "men-haircut":      Scissors,
-  "men-colour":       Palette,
-  "men-facial":       Sparkles,
-  "men-massage":      Leaf,
-  "men-bleach":       Sun,
-  "men-cleanup":      Droplets,
-  "men-spa":          Flower,
-  "men-packages":     Gift,
-  "women-haircut":    Scissors,
-  "women-colour":     Palette,
-  "women-spa":        Flower,
-  "women-straightening": Wand2,
-  "women-makeup":     Paintbrush,
-  "women-waxing":     Feather,
-  "women-threading":  Target,
-  "women-bleach":     Sparkles,
-  "women-cleanup":    Droplets,
-  "women-detan":      Sun,
-  "women-manicure":   Hand,
-  "women-pedicure":   Footprints,
-  "women-massage":    Leaf,
-  "kids-haircut":     Baby,
+/* Curated, close-match imagery per category — visual anchor of the card */
+const CATEGORY_IMAGES: Record<string, string> = {
+  "men-haircut":         "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&auto=format&fit=crop",
+  "men-colour":          "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&auto=format&fit=crop",
+  "men-facial":          "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&auto=format&fit=crop",
+  "men-massage":         "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&auto=format&fit=crop",
+  "men-bleach":          "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&auto=format&fit=crop",
+  "men-cleanup":         "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&auto=format&fit=crop",
+  "men-spa":             "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&auto=format&fit=crop",
+  "men-packages":        "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800&auto=format&fit=crop",
+  "women-haircut":       "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop",
+  "women-colour":        "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&auto=format&fit=crop",
+  "women-spa":           "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&auto=format&fit=crop",
+  "women-straightening": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop",
+  "women-makeup":        "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&auto=format&fit=crop",
+  "women-waxing":        "https://images.unsplash.com/photo-1571646034647-52e6ea84b28c?w=800&auto=format&fit=crop",
+  "women-threading":     "https://images.unsplash.com/photo-1500840216050-6ffa99d75160?w=800&auto=format&fit=crop",
+  "women-bleach":        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&auto=format&fit=crop",
+  "women-cleanup":       "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&auto=format&fit=crop",
+  "women-detan":         "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop",
+  "women-manicure":      "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&auto=format&fit=crop",
+  "women-pedicure":      "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=800&auto=format&fit=crop",
+  "women-massage":       "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&auto=format&fit=crop",
+  "kids-haircut":        "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&auto=format&fit=crop",
 };
 
 const fmt = (n: number) => n.toLocaleString("en-IN");
 
 /* ── Service detail modal ─────────────────────────────────────────────── */
 function ServiceModal({ cat, onClose }: { cat: ServiceCategory | null; onClose: () => void }) {
-  const Icon = cat ? CATEGORY_ICONS[cat.id] ?? Sparkles : null;
-
   return (
     <AnimatePresence>
       {cat && (
@@ -67,11 +59,14 @@ function ServiceModal({ cat, onClose }: { cat: ServiceCategory | null; onClose: 
           >
             {/* Header */}
             <div className="flex items-start justify-between gap-4 px-7 py-6 border-b" style={{ borderColor: "#E5E7EB" }}>
-              <div className="flex items-start gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl" style={{ background: "#EEF5FA" }}>
-                  {Icon && <Icon className="h-5 w-5" style={{ color: "#234E70" }} />}
-                </span>
-                <div>
+              <div className="flex items-start gap-4 min-w-0">
+                <img
+                  src={CATEGORY_IMAGES[cat.id] ?? "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop"}
+                  alt={cat.title}
+                  className="h-11 w-11 shrink-0 rounded-xl object-cover"
+                  style={{ background: "#EEF5FA" }}
+                />
+                <div className="min-w-0">
                   <h3 className="font-heading font-semibold text-xl leading-tight" style={{ color: "#234E70" }}>{cat.title}</h3>
                   {cat.description && (
                     <p className="text-xs font-body mt-1" style={{ color: "#6B7280" }}>{cat.description}</p>
@@ -167,7 +162,7 @@ function ServiceModal({ cat, onClose }: { cat: ServiceCategory | null; onClose: 
 /* ── Category card ──────────────────────────────────────────────────────── */
 function CategoryCard({ cat, onClick, delay }: { cat: ServiceCategory; onClick: () => void; delay: number }) {
   const minPrice = Math.min(...cat.services.map((s) => s.price));
-  const Icon = CATEGORY_ICONS[cat.id] ?? Sparkles;
+  const img = CATEGORY_IMAGES[cat.id] ?? "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop";
 
   return (
     <motion.button
@@ -176,45 +171,56 @@ function CategoryCard({ cat, onClick, delay }: { cat: ServiceCategory; onClick: 
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay }}
       onClick={onClick}
-      className="group w-full bg-white border text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary"
-      style={{ borderRadius: "14px", borderColor: "#E5E7EB" }}
+      className="group w-full bg-white text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col overflow-hidden"
+      style={{ borderRadius: "14px", border: "1px solid #E5E7EB" }}
     >
-      {/* Top row — icon + meta */}
-      <div className="flex items-start justify-between gap-3 p-6 pb-0">
-        <span className="flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-300 group-hover:bg-primary"
-          style={{ background: "#EEF5FA" }}>
-          <Icon className="h-6 w-6 transition-colors duration-300 group-hover:text-white" style={{ color: "#234E70" }} />
-        </span>
-        <span className="text-[11px] font-body font-medium px-2.5 py-1 rounded-full" style={{ background: "#FAF7F0", color: "#6B7280" }}>
+      {/* 1. Image — primary visual anchor (full width, 4:3) */}
+      <div className="relative w-full aspect-[4/3] overflow-hidden" style={{ background: "#EEF5FA" }}>
+        <img
+          src={img}
+          alt={cat.title}
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {/* 5. Service count badge — top-right, subtle white chip */}
+        <span
+          className="absolute top-3 right-3 text-[10px] font-body font-semibold px-2.5 py-1 rounded-full backdrop-blur"
+          style={{ background: "rgba(255,255,255,0.88)", color: "#234E70" }}
+        >
           {cat.services.length} services
         </span>
       </div>
 
-      {/* Title + description */}
-      <div className="px-6 pt-5">
-        <h3 className="font-heading font-semibold text-xl" style={{ color: "#1F2937" }}>
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-5">
+        {/* 4. Title — supporting heading (image now leads visually) */}
+        <h3 className="font-heading font-semibold text-lg leading-tight" style={{ color: "#1F2937" }}>
           {cat.title}
         </h3>
-        <p className="text-[13px] font-body leading-relaxed mt-1.5 line-clamp-2" style={{ color: "#6B7280" }}>
+
+        {/* 6. Tagline — most subtle, one line */}
+        <p className="text-xs font-body leading-relaxed mt-1 line-clamp-1" style={{ color: "#9CA3AF" }}>
           {cat.description}
         </p>
-      </div>
 
-      {/* Footer — price leads, CTA follows */}
-      <div className="flex items-end justify-between gap-3 p-6 mt-5 border-t" style={{ borderColor: "#F3F4F6" }}>
-        <div>
-          <p className="text-[10px] font-body font-medium uppercase tracking-wider" style={{ color: "#9CA3AF" }}>
-            Starting from
-          </p>
-          <p className="font-heading font-bold text-2xl flex items-center mt-1 leading-none" style={{ color: "#234E70" }}>
-            <IndianRupee className="w-4 h-4" />{fmt(minPrice)}
-          </p>
+        {/* 2. Price + 3. View Services — primary actions, anchored to bottom */}
+        <div className="flex items-end justify-between gap-3 mt-auto pt-5">
+          <div>
+            <p className="text-[9px] font-body font-medium uppercase tracking-wider" style={{ color: "#9CA3AF" }}>
+              Starting from
+            </p>
+            <p className="font-heading font-bold text-2xl flex items-center mt-1 leading-none" style={{ color: "#234E70" }}>
+              <IndianRupee className="w-4 h-4" />{fmt(minPrice)}
+            </p>
+          </div>
+          <span
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-medium transition-all duration-300 group-hover:gap-2.5"
+            style={{ background: "#234E70", color: "#fff" }}
+          >
+            View Services
+            <ArrowRight className="w-3.5 h-3.5" />
+          </span>
         </div>
-        <span className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-medium transition-all duration-300 group-hover:gap-3"
-          style={{ background: "#234E70", color: "#fff" }}>
-          View Services
-          <ArrowRight className="w-3.5 h-3.5" />
-        </span>
       </div>
     </motion.button>
   );
@@ -223,6 +229,7 @@ function CategoryCard({ cat, onClick, delay }: { cat: ServiceCategory; onClick: 
 /* ── Main section ───────────────────────────────────────────────────────── */
 export default function Services() {
   const ref   = useRef(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
   const inView = useInView(ref, { once: true });
   const [gender,   setGender]   = useState<"men" | "women" | "kids">("men");
   const [showAll,  setShowAll]  = useState(false);
@@ -288,7 +295,17 @@ export default function Services() {
         {cats.length > 6 && (
           <div className="mt-12 flex justify-center">
             <button
-              onClick={() => setShowAll(!showAll)}
+              ref={btnRef}
+              onClick={() => {
+                if (showAll) {
+                  setShowAll(false);
+                  requestAnimationFrame(() => {
+                    btnRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                  });
+                } else {
+                  setShowAll(true);
+                }
+              }}
               className="btn-ghost"
               aria-expanded={showAll}
             >
