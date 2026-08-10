@@ -6,6 +6,11 @@ export interface ServiceItem {
   duration?: string;
 }
 
+export interface ServiceSubCategory {
+  title: string;
+  rows: { label: string; price: string; price2?: string }[];
+}
+
 export interface ServiceCategory {
   id: string;
   gender: "men" | "women" | "kids";
@@ -13,6 +18,7 @@ export interface ServiceCategory {
   title: string;
   description: string;
   services: ServiceItem[];
+  subCategories?: ServiceSubCategory[];
   imageUrl?: string;
 }
 
@@ -326,6 +332,127 @@ export const servicesData: ServiceCategory[] = [
       { name: "Chin", price: 30 },
       { name: "Side Face", price: 60 },
       { name: "Full Face Threading", price: 150 },
+    ],
+  },
+  {
+    id: "women-waxing",
+    gender: "women",
+    icon: "🌸",
+    title: "Waxing",
+    description: "Smooth, gentle hair removal for every body area",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5IW5s1fmfNCWVZqRjv2aYlQyx_kBs5JXBDOrkxLJRoxuWfEeJ468LCHU&s=10",
+    services: [],
+    subCategories: [
+      {
+        title: "",
+        rows: [
+          { label: "Upper Lip Wax", price: "₹50", price2: "₹100" },
+          { label: "Chin Wax", price: "₹60", price2: "₹120" },
+          { label: "Cheeks Wax", price: "₹50", price2: "₹100" },
+          { label: "Full Face Wax", price: "₹250", price2: "₹350" },
+          { label: "Under Arms Wax", price: "₹100", price2: "₹200" },
+          { label: "Full Arms Wax", price: "₹300", price2: "₹500" },
+          { label: "Half Arms Wax", price: "₹150", price2: "₹300" },
+          { label: "3/4 Arms", price: "₹250", price2: "₹400" },
+          { label: "Full Legs Wax", price: "₹600", price2: "₹1000" },
+          { label: "Half Legs Wax", price: "₹300", price2: "₹500" },
+          { label: "Blouse Line Wax", price: "₹300", price2: "₹600" },
+          { label: "Full Body Waxing", price: "₹2500", price2: "₹3500" },
+          { label: "Bikini", price: "₹1500", price2: "₹2000" },
+          { label: "Stomach", price: "₹300", price2: "₹600" },
+          { label: "Lower Back", price: "₹300", price2: "₹600" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "women-bleach",
+    gender: "women",
+    icon: "✨",
+    title: "Bleach",
+    description: "Professional lightening services for a brighter, even tone",
+    services: [],
+    subCategories: [
+      {
+        title: "Upper Lip / Lower Lip",
+        rows: [
+          { label: "Oxy", price: "₹120" },
+          { label: "Fruit", price: "₹100" },
+          { label: "Gold", price: "₹150" },
+        ],
+      },
+      {
+        title: "Face Bleach",
+        rows: [
+          { label: "Oxy", price: "₹350" },
+          { label: "Fruit", price: "₹300" },
+          { label: "Gold", price: "₹400" },
+        ],
+      },
+      {
+        title: "Back Neck",
+        rows: [
+          { label: "Oxy", price: "₹400" },
+          { label: "Fruit", price: "₹350" },
+          { label: "Gold", price: "₹450" },
+        ],
+      },
+      {
+        title: "Under Arms Bleach",
+        rows: [
+          { label: "Oxy", price: "₹250" },
+          { label: "Fruit", price: "₹300" },
+          { label: "Gold", price: "₹350" },
+        ],
+      },
+      {
+        title: "Full Arms Bleach",
+        rows: [
+          { label: "Oxy", price: "₹500" },
+          { label: "Fruit", price: "₹400" },
+          { label: "Gold", price: "₹600" },
+        ],
+      },
+      {
+        title: "Half Arms Bleach",
+        rows: [
+          { label: "Oxy", price: "₹350" },
+          { label: "Fruit", price: "₹300" },
+          { label: "Gold", price: "₹400" },
+        ],
+      },
+      {
+        title: "Full Legs Bleach",
+        rows: [
+          { label: "Oxy", price: "₹600" },
+          { label: "Fruit", price: "₹500" },
+          { label: "Gold", price: "₹700" },
+        ],
+      },
+      {
+        title: "Half Legs Bleach",
+        rows: [
+          { label: "Oxy", price: "₹400" },
+          { label: "Fruit", price: "₹300" },
+          { label: "Gold", price: "₹500" },
+        ],
+      },
+      {
+        title: "Blouse Line",
+        rows: [
+          { label: "Oxy", price: "₹350" },
+          { label: "Fruit", price: "₹300" },
+          { label: "Gold", price: "₹400" },
+        ],
+      },
+      {
+        title: "Full Body",
+        rows: [
+          { label: "Oxy", price: "₹3000" },
+          { label: "Fruit", price: "₹2500" },
+          { label: "Gold", price: "₹3500" },
+        ],
+      },
     ],
   },
   {

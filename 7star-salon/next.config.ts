@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "hips.hearstapps.com" },
       { protocol: "https", hostname: "www.nishhair.com" },
       { protocol: "https", hostname: "www.fabmood.com" },
+      { protocol: "https", hostname: "onesociety.co.uk" },
     ],
   },
 };

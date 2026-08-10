@@ -22,18 +22,98 @@ const CATEGORY_IMAGES: Record<string, string> = {
   "women-straightening": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop",
   "women-makeup":        "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&auto=format&fit=crop",
   "women-threading":     "https://images.unsplash.com/photo-1500840216050-6ffa99d75160?w=800&auto=format&fit=crop",
+  "women-waxing":       "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&auto=format&fit=crop",
+  "women-bleach":       "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&auto=format&fit=crop",
   "women-cleanup":       "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&auto=format&fit=crop",
   "women-detan":         "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop",
   "women-manicure":      "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&auto=format&fit=crop",
   "women-pedicure":      "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=800&auto=format&fit=crop",
-  "women-massage":       "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&auto=format&fit=crop",
-  "women-oil-massage":   "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&auto=format&fit=crop",
+  "women-massage":       "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=800&auto=format&fit=crop",
+  "women-oil-massage":   "https://images.unsplash.com/photo-1552693673-1bf958298935?w=800&auto=format&fit=crop",
   "women-other":         "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800&auto=format&fit=crop",
   "women-kids-cut":      "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&auto=format&fit=crop",
   "kids-haircut":        "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&auto=format&fit=crop",
 };
 
 const fmt = (n: number) => n.toLocaleString("en-IN");
+
+/* ── Compact menu table (for waxing & bleach grids) ────────────────── */
+function MenuTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
+  return (
+    <div className="rounded-xl border border-border overflow-hidden">
+      <div className="flex items-center px-4 sm:px-5 py-2.5 bg-background-blued-blue">
+        {headers.map((h, i) => (
+          <span
+            key={h}
+            className={`font-body text-[10px] font-semibold uppercase tracking-wider text-primary ${
+              i === 0 ? "flex-1 text-left" : "w-24 sm:w-28 text-right"
+            } ${i > 0 ? "pl-3" : ""}`}
+          >
+            {h}
+          </span>
+        ))}
+      </div>
+      {rows.map((r, ri) => (
+        <div
+          key={ri}
+          className={`flex items-center px-4 sm:px-5 py-3 ${
+            ri % 2 === 0 ? "bg-white" : "bg-backgroundd"
+          } border-t border-[#F3F4F6]`}
+        >
+          {r.map((cell, ci) => (
+            <span
+              key={ci}
+              className={`font-body text-sm ${
+                ci === 0
+                  ? "flex-1 text-left text-text"
+                  : "w-24 sm:w-28 text-right font-semibold text-primary"
+              } ${ci > 0 ? "pl-3" : ""}`}
+            >
+              {cell}
+            </span>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ── Waxing / Bleach sub-category content ───────────────────────────── */
+function WaxBleachContent({ cat }: { cat: ServiceCategory }) {
+  const subs = cat.subCategories ?? [];
+  const hasTwoPrices = subs.some((s) => s.rows.some((r) => r.price2));
+
+  return (
+    <div>
+      {subs.length > 0 && (
+        <div>
+          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.18em] mb-3" style={{ color: "#9CA3AF" }}>
+            Services &amp; Rates
+          </p>
+          {hasTwoPrices ? (
+            <MenuTable
+              headers={["Service", "Honey Wax", "Rice Wax"]}
+              rows={subs.flatMap((s) => s.rows).map((r) => [r.label, r.price, r.price2 ?? "—"])}
+            />
+          ) : (
+            (() => {
+              const brands = Array.from(new Set(subs.flatMap((s) => s.rows.map((r) => r.label))));
+              return (
+                <MenuTable
+                  headers={["Area", ...brands]}
+                  rows={subs.map((s) => [
+                    s.title,
+                    ...brands.map((b) => s.rows.find((r) => r.label === b)?.price ?? "—"),
+                  ])}
+                />
+              );
+            })()
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
 
 /* ── Service detail modal ─────────────────────────────────────────────── */
 function ServiceModal({ cat, onClose }: { cat: ServiceCategory | null; onClose: () => void }) {
@@ -56,7 +136,9 @@ function ServiceModal({ cat, onClose }: { cat: ServiceCategory | null; onClose: 
             exit={{   scale: 0.97,  opacity: 0        }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
             onClick={(e) => e.stopPropagation()}
-            className="relative bg-white w-full max-w-lg max-h-[82vh] flex flex-col overflow-hidden shadow-2xl"
+            className={`relative bg-white w-full flex flex-col overflow-hidden shadow-2xl ${
+              cat.subCategories?.length ? "max-w-4xl max-h-[88vh]" : "max-w-lg max-h-[82vh]"
+            }`}
             style={{ borderRadius: "14px" }}
           >
             {/* Header */}
@@ -85,68 +167,70 @@ function ServiceModal({ cat, onClose }: { cat: ServiceCategory | null; onClose: 
               </button>
             </div>
 
-            {/* Table header */}
-            <div className="flex items-center px-7 py-3" style={{ background: "#EEF5FA" }}>
-              <span className="flex-1 text-[10px] font-body font-semibold uppercase tracking-wider" style={{ color: "#234E70" }}>
-                Service · {cat.services.length} options
-              </span>
-              <span className="text-[10px] font-body font-semibold uppercase tracking-wider" style={{ color: "#234E70" }}>
-                Price
-              </span>
-            </div>
+            {cat.subCategories?.length ? (
+              /* Waxing / Bleach — Bridal-style table layout */
+              <div className="overflow-y-auto flex-1 no-scrollbar p-6 sm:p-8">
+                <WaxBleachContent cat={cat} />
+              </div>
+            ) : (
+              <>
+                {/* Table header */}
+                <div className="flex items-center px-7 py-3" style={{ background: "#EEF5FA" }}>
+                  <span className="flex-1 text-[10px] font-body font-semibold uppercase tracking-wider" style={{ color: "#234E70" }}>
+                    Service · {cat.services.length} options
+                  </span>
+                  <span className="text-[10px] font-body font-semibold uppercase tracking-wider" style={{ color: "#234E70" }}>
+                    Price
+                  </span>
+                </div>
 
-            {/* Service rows */}
-            <div className="overflow-y-auto flex-1 no-scrollbar">
-              {cat.services.map((s) => {
-                const savings = s.oldPrice ? s.oldPrice - s.price : null;
-                return (
-                  <div
-                    key={s.name}
-                    className="flex items-center px-7 py-4 border-b last:border-0 font-bold"
-                    style={{ borderColor: "#F3F4F6" }}
-                  >
-                    <div className="flex-1 min-w-0 pr-4">
-                      <span className="block text-sm font-body font-medium" style={{ color: "#1F2937" }}>
-                        {s.name}
-                      </span>
-                      <div className="flex items-center gap-2 mt-1 flex-wrap">
-                        {s.offer && (
-                          <span className="text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full"
-                            style={{ background: "#FDF3E3", color: "#B4821F" }}>
-                            {s.offer}
+                {/* Service rows */}
+                <div className="overflow-y-auto flex-1 no-scrollbar">
+                  {cat.services.map((s) => {
+                    const savings = s.oldPrice ? s.oldPrice - s.price : null;
+                    return (
+                      <div
+                        key={s.name}
+                        className="flex items-center px-7 py-4 border-b last:border-0 font-bold"
+                        style={{ borderColor: "#F3F4F6" }}
+                      >
+                        <div className="flex-1 min-w-0 pr-4">
+                          <span className="block text-sm font-body font-medium" style={{ color: "#1F2937" }}>
+                            {s.name}
                           </span>
-                        )}
-                        {/*
-                        {s.duration && (
-                          <span className="text-xs font-body inline-flex items-center gap-1" style={{ color: "#9CA3AF" }}>
-                            <Clock className="w-3 h-3" />{s.duration}
+                          <div className="flex items-center gap-2 mt-1 flex-wrap">
+                            {s.offer && (
+                              <span className="text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full"
+                                style={{ background: "#FDF3E3", color: "#B4821F" }}>
+                                {s.offer}
+                              </span>
+                            )}
+                            {savings ? (
+                              <span className="text-xs font-semibold font-body" style={{ color: "#059669" }}>
+                                Save ₹{fmt(savings)}
+                              </span>
+                            ) : null}
+                          </div>
+                        </div>
+                        <div className="shrink-0 text-right">
+                          <span className="flex items-center justify-end gap-2">
+                            {s.oldPrice && (
+                              <span className="text-sm line-through font-body" style={{ color: "#9CA3AF" }}>
+                                ₹{fmt(s.oldPrice)}
+                              </span>
+                            )}
+                            <span className="font-heading font-bold text-lg flex items-center justify-end leading-none"
+                              style={{ color: "#234E70" }}>
+                              <IndianRupee className="w-4 h-4" />{fmt(s.price)}
+                            </span>
                           </span>
-                        )}
-                        */}
-                        {savings ? (
-                          <span className="text-xs font-semibold font-body" style={{ color: "#059669" }}>
-                            Save ₹{fmt(savings)}
-                          </span>
-                        ) : null}
+                        </div>
                       </div>
-                    </div>
-                    <div className="shrink-0 text-right">
-                      <span className="flex items-center justify-end gap-2">
-                        {s.oldPrice && (
-                          <span className="text-sm line-through font-body" style={{ color: "#9CA3AF" }}>
-                            ₹{fmt(s.oldPrice)}
-                          </span>
-                        )}
-                        <span className="font-heading font-bold text-lg flex items-center justify-end leading-none"
-                          style={{ color: "#234E70" }}>
-                          <IndianRupee className="w-4 h-4" />{fmt(s.price)}
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+                    );
+                  })}
+                </div>
+              </>
+            )}
 
             {/* Footer */}
             <div className="px-7 py-4 border-t" style={{ borderColor: "#E5E7EB", background: "#FAF7F0" }}>
@@ -162,8 +246,25 @@ function ServiceModal({ cat, onClose }: { cat: ServiceCategory | null; onClose: 
 }
 
 /* ── Category card ──────────────────────────────────────────────────────── */
+function catServiceCount(cat: ServiceCategory): number {
+  if (cat.services.length > 0) return cat.services.length;
+  return cat.subCategories?.flatMap((s) => s.rows).length ?? 0;
+}
+
+function catMinPrice(cat: ServiceCategory): number {
+  if (cat.services.length > 0) return Math.min(...cat.services.map((s) => s.price));
+  const rows = cat.subCategories?.flatMap((s) => s.rows) ?? [];
+  const prices = rows.flatMap((r) => {
+    const parts = [r.price];
+    if (r.price2) parts.push(r.price2);
+    return parts.map((p) => Number(p.replace(/[^0-9]/g, "")));
+  });
+  return Math.min(...prices);
+}
+
 function CategoryCard({ cat, onClick, delay }: { cat: ServiceCategory; onClick: () => void; delay: number }) {
-  const minPrice = Math.min(...cat.services.map((s) => s.price));
+  const minPrice = catMinPrice(cat);
+  const serviceCount = catServiceCount(cat);
   const img = cat.imageUrl ?? CATEGORY_IMAGES[cat.id] ?? "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop";
 
   return (
@@ -189,7 +290,7 @@ function CategoryCard({ cat, onClick, delay }: { cat: ServiceCategory; onClick: 
           className="absolute top-3 right-3 text-[10px] font-body font-semibold px-2.5 py-1 rounded-full backdrop-blur"
           style={{ background: "rgba(255,255,255,0.88)", color: "#234E70" }}
         >
-          {cat.services.length} services
+          {serviceCount} services
         </span>
       </div>
 

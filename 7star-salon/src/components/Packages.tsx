@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { Check, BadgePercent, IndianRupee } from "lucide-react";
+import { Check, BadgePercent, ChevronDown, IndianRupee } from "lucide-react";
 import { packagesData } from "@/data/packages";
 
 function PackageCard({ pkg, delay }: { pkg: (typeof packagesData)[0]; delay: number }) {
@@ -93,8 +93,16 @@ function PackageCard({ pkg, delay }: { pkg: (typeof packagesData)[0]; delay: num
 }
 
 export default function Packages() {
-  const ref   = useRef(null);
+  const ref    = useRef(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
   const inView = useInView(ref, { once: true });
+  const [gender,  setGender]  = useState<"men" | "women">("men");
+  const [showAll, setShowAll] = useState(false);
+
+  const pkgs = gender === "men"
+    ? packagesData.filter((p) => p.gender === "men")
+    : packagesData.filter((p) => p.gender !== "men");
+  const visible = showAll ? pkgs : pkgs.slice(0, 6);
 
   return (
     <section id="packages" className="section bg-white">
@@ -104,21 +112,77 @@ export default function Packages() {
           initial={{ opacity: 0, y: 18 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-14"
+          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-7 mb-14"
         >
-          <p className="label mb-2.5">Value Deals</p>
-          <h2 className="h-lg" style={{ color: "#234E70" }}>Package Offers</h2>
-          <div className="rule rule-left mt-4" />
-          <p className="text-sm font-body mt-4 max-w-md" style={{ color: "#6B7280" }}>
-            Premium combo packages crafted for complete transformations at exceptional value.
-          </p>
+          <div>
+            <p className="label mb-2.5">Value Deals</p>
+            <h2 className="h-lg" style={{ color: "#234E70" }}>Package Offers</h2>
+            <div className="rule rule-left mt-4" />
+            <p className="text-sm font-body mt-4 max-w-md" style={{ color: "#6B7280" }}>
+              Premium combo packages crafted for complete transformations at exceptional value.
+            </p>
+          </div>
+
+          {/* Gender segmented control */}
+          <div className="inline-flex self-start sm:self-auto p-1 border rounded-full"
+            style={{ background: "#fff", borderColor: "#E5E7EB" }}>
+            {(["men", "women"] as const).map((g) => (
+              <button
+                key={g}
+                onClick={() => setGender(g)}
+                className="px-5 py-2 text-xs font-body font-medium capitalize rounded-full transition-all duration-200"
+                style={
+                  gender === g
+                    ? { background: "#234E70", color: "#fff" }
+                    : { background: "transparent", color: "#6B7280" }
+                }
+              >
+                {g === "men" ? "Men" : "Women"}
+              </button>
+            ))}
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-          {packagesData.map((pkg, i) => (
-            <PackageCard key={pkg.id} pkg={pkg} delay={i * 0.08} />
-          ))}
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={gender}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1,  y: 0  }}
+            exit={{   opacity: 0         }}
+            transition={{ duration: 0.28 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7"
+          >
+            {visible.map((pkg, i) => (
+              <PackageCard key={pkg.id} pkg={pkg} delay={i * 0.08} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {pkgs.length > 6 && (
+          <div className="mt-12 flex justify-center">
+            <button
+              ref={btnRef}
+              onClick={() => {
+                if (showAll) {
+                  setShowAll(false);
+                  requestAnimationFrame(() => {
+                    btnRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                  });
+                } else {
+                  setShowAll(true);
+                }
+              }}
+              className="btn-ghost"
+              aria-expanded={showAll}
+            >
+              {showAll ? "Show less" : "Show more"}
+              <ChevronDown
+                className="w-4 h-4"
+                style={{ transform: showAll ? "rotate(180deg)" : "none", transition: "transform 0.3s ease" }}
+              />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
