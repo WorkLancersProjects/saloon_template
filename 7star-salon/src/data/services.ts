@@ -13,6 +13,7 @@ export interface ServiceCategory {
   title: string;
   description: string;
   services: ServiceItem[];
+  imageUrl?: string;
 }
 
 export const servicesData: ServiceCategory[] = [
@@ -23,6 +24,7 @@ export const servicesData: ServiceCategory[] = [
     icon: "✂️",
     title: "Hair Cut",
     description: "Precision cuts, trims and shaving for every style preference",
+    imageUrl: "https://cdn.shopify.com/s/files/1/0899/2676/2789/files/Classic_Crew_Cut.jpg?v=1730411406",
     services: [
       { name: "Trimming", price: 80 },
       { name: "Hair Cut Normal", price: 150 },
@@ -43,6 +45,7 @@ export const servicesData: ServiceCategory[] = [
     icon: "🎨",
     title: "Hair Colouring",
     description: "Premium hair colour services using top international brands",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN77Xj73oyeqbfAwrmKs_x8qKe02BLiNcfa3DWj9Yssn59veLG2B6tcc4&s=10",
     services: [
       { name: "Garnier (No Ammonia)", price: 300 },
       { name: "Any Herbal", price: 200 },
@@ -69,6 +72,7 @@ export const servicesData: ServiceCategory[] = [
     icon: "🌿",
     title: "Hair Spa & Oil Therapy",
     description: "Nourishing hair spa and oil therapy treatments for healthy hair",
+    imageUrl: "https://content.jdmagicbox.com/comp/nellore/e6/9999px861.x861.190913191004.g5e6/catalogue/fresh-look-salon-jyothi-nagar-nellore-salons-3hzrgtkg1e.jpg",
     services: [
       { name: "Hair Spa", price: 500 },
       { name: "Oil Therapy", price: 800 },
@@ -80,6 +84,7 @@ export const servicesData: ServiceCategory[] = [
     icon: "💆",
     title: "Facial",
     description: "Deep cleansing and rejuvenating facial treatments for men",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQop3r0zfI8FP1ifL74je9lUE2RIZMu58ERk_GjQNezolgD6W9zkda3tRw&s=10",
     services: [
       { name: "Face Pack", price: 100 },
       { name: "Face Massage", price: 200 },
@@ -110,6 +115,7 @@ export const servicesData: ServiceCategory[] = [
     icon: "🧴",
     title: "Oil Massage",
     description: "Relaxing head and body massage with premium oils",
+    imageUrl: "https://i-media.vyaparify.com/vcards/services/9537/oil-massage.jpg",
     services: [
       { name: "Shahnas (Professional Oil)", price: 300 },
       { name: "Almond (Root Strong)", price: 300 },
@@ -132,6 +138,7 @@ export const servicesData: ServiceCategory[] = [
     icon: "✨",
     title: "Bleach",
     description: "Professional bleaching services for a brighter, even tone",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY5OcT4kxsI0wcdOMspnCD5FJkZtyNANwaRZAZ5RdhgAI4tsBjcNasnUq8&s=10",
     services: [
       { name: "OXY Bleach", price: 350 },
       { name: "Gold Bleach", price: 350 },
@@ -147,6 +154,7 @@ export const servicesData: ServiceCategory[] = [
     icon: "🧼",
     title: "Clean Up",
     description: "Quick and refreshing skin clean up sessions",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc4swP7buhOnAoga99NVZGuzi93zqmmvDj7z8_UFftBIBdmGFcfbuZtTJ1&s=10",
     services: [
       { name: "Fruit Clean Up", price: 300 },
       { name: "Wine Clean Up", price: 500 },
@@ -173,6 +181,7 @@ export const servicesData: ServiceCategory[] = [
     icon: "💅",
     title: "Manicure",
     description: "Professional nail care and hand treatments",
+    imageUrl: "https://cdn2.stylecraze.com/wp-content/uploads/2018/10/Basic-Manicure.jpg.webp",
     services: [
       { name: "Manicure", price: 250 },
       { name: "Spa Manicure with Pack", price: 500 },
@@ -212,6 +221,7 @@ export const servicesData: ServiceCategory[] = [
     icon: "🌿",
     title: "Hair Spa",
     description: "Nourishing hair spa treatments for healthy, shiny hair",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjV6ZP8ptn_0_dHqZLPFn2JxHr2C75KuBIu_fHtEsqwWL-P4rZRHofPUk&s=10",
     services: [
       { name: "Hair Spa Loreal", price: 1000 },
       { name: "Dandruff Control", price: 1200 },

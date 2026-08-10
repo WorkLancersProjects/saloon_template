@@ -63,7 +63,7 @@ function ServiceModal({ cat, onClose }: { cat: ServiceCategory | null; onClose: 
             <div className="flex items-start justify-between gap-4 px-7 py-6 border-b" style={{ borderColor: "#E5E7EB" }}>
               <div className="flex items-start gap-4 min-w-0">
                 <img
-                  src={CATEGORY_IMAGES[cat.id] ?? "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop"}
+                  src={cat.imageUrl ?? CATEGORY_IMAGES[cat.id] ?? "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop"}
                   alt={cat.title}
                   className="h-11 w-11 shrink-0 rounded-xl object-cover"
                   style={{ background: "#EEF5FA" }}
@@ -164,7 +164,7 @@ function ServiceModal({ cat, onClose }: { cat: ServiceCategory | null; onClose: 
 /* ── Category card ──────────────────────────────────────────────────────── */
 function CategoryCard({ cat, onClick, delay }: { cat: ServiceCategory; onClick: () => void; delay: number }) {
   const minPrice = Math.min(...cat.services.map((s) => s.price));
-  const img = CATEGORY_IMAGES[cat.id] ?? "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop";
+  const img = cat.imageUrl ?? CATEGORY_IMAGES[cat.id] ?? "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop";
 
   return (
     <motion.button
