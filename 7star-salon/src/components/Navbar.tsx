@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const links = [
   { label: "Hairstyles", href: "#hairstyles" },
@@ -58,11 +58,11 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-white/97 backdrop-blur-md border-b border-[#E5E7EB] shadow-sm"
+            ? "bg-white/97 backdrop-blur-md border-b border-border shadow-sm"
             : "bg-transparent"
         }`}
       >
-        <div className="wrap flex items-center justify-between h-[72px]">
+        <div className="wrap flex items-center justify-between h-18">
           {/* Logo + brand title */}
           <button
             onClick={() => go("#hero")}
@@ -79,10 +79,10 @@ export default function Navbar() {
             />
             <span
               className={`font-heading font-bold text-xl tracking-tight leading-none transition-colors ${
-                scrolled ? "text-[#234E70]" : "text-white"
+                scrolled ? "text-primary" : "text-white"
               }`}
             >
-              Family Salon
+              SALON
             </span>
           </button>
 
@@ -98,8 +98,8 @@ export default function Navbar() {
                   className={`text-[0.9rem] px-2 font-body font-medium tracking-wide transition-colors relative group ${
                     scrolled
                       ? isActive
-                        ? "text-[#234E70]"
-                        : "text-[#6B7280] hover:text-[#234E70]"
+                        ? "text-primary"
+                        : "text-muted hover:text-primary"
                       : isActive
                         ? "text-white"
                         : "text-white/80 hover:text-white"
@@ -107,7 +107,7 @@ export default function Navbar() {
                 >
                   {l.label}
                   <span
-                    className={`absolute -bottom-0.5 left-0 h-px bg-[#C6A15B] transition-all duration-300 ${
+                    className={`absolute -bottom-0.5 left-0 h-px bg-accent transition-all duration-300 ${
                       isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
@@ -120,10 +120,10 @@ export default function Navbar() {
           <div className="hidden lg:block">
             <button
               onClick={() => go("#contact")}
-              className={`text-[0.75rem] font-body font-medium tracking-[0.1em] uppercase px-5 py-2.5 border transition-all duration-300 ${
+              className={`text-[0.75rem] font-body font-medium tracking-widest uppercase px-5 py-2.5 border transition-all duration-300 ${
                 scrolled
-                  ? "border-[#234E70] text-[#234E70] hover:bg-[#234E70] hover:text-white"
-                  : "border-white/50 text-white hover:bg-white hover:text-[#234E70]"
+                  ? "border-primaryetext-primaryover:bg-[#234E70] hover:text-white"
+                  : "border-white/50 text-white hover:bg-white hover:text-primary"
               }`}
             >
               Book Now
@@ -133,7 +133,7 @@ export default function Navbar() {
           {/* Mobile */}
           <button
             onClick={() => setOpen(!open)}
-            className={`lg:hidden p-2 ${scrolled ? "text-[#234E70]" : "text-white"}`}
+            className={`lg:hidden p-2 ${scrolled ? "text-primary" : "text-white"}`}
             aria-label="Toggle menu"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -149,19 +149,19 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.22 }}
-            className="fixed top-[72px] inset-x-0 z-40 bg-white border-b border-[#E5E7EB] shadow-lg lg:hidden"
+            className="fixed top-18 inset-x-0 z-40 bg-white border-b border-border shadow-lg lg:hidden"
           >
             <div className="wrap py-7 flex flex-col gap-5">
               {links.map((l) => (
                 <button
                   key={l.href}
                   onClick={() => go(l.href)}
-                  className="text-left text-[#1F2937] font-body text-sm font-medium hover:text-[#234E70] transition-colors"
+                  className="text-left text-text font-body text-sm font-medium hover:text-primary transition-colors"
                 >
                   {l.label}
                 </button>
               ))}
-              <div className="pt-2 border-t border-[#E5E7EB]">
+              <div className="pt-2 border-t border-border">
                 <button
                   onClick={() => go("#contact")}
                   className="btn w-full justify-center text-sm mt-1"

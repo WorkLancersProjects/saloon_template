@@ -1,24 +1,24 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import type { ComponentType, CSSProperties } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import {
-  X,
-  ChevronDown,
-  Scissors,
-  Brush,
-  Bath,
-  Sparkles,
-  Leaf,
-  Sun,
-  Droplets,
-  CircleDot,
-  Flower,
-} from "lucide-react";
-import { bridalCategories } from "@/data/bridalServices";
 import type { BridalCategory } from "@/data/bridalServices";
+import { bridalCategories } from "@/data/bridalServices";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import {
+  Bath,
+  Brush,
+  ChevronDown,
+  CircleDot,
+  Droplets,
+  Flower,
+  Leaf,
+  Scissors,
+  Sparkles,
+  Sun,
+  X,
+} from "lucide-react";
+import Image from "next/image";
+import type { ComponentType, CSSProperties } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type IconType = ComponentType<{ className?: string; style?: CSSProperties }>;
 
@@ -43,12 +43,12 @@ function catCount(cat: BridalCategory): number {
 // ── Compact menu table (used for bleach / waxing grids) ──────────────────────
 function MenuTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
-    <div className="rounded-xl border border-[#E5E7EB] overflow-hidden">
-      <div className="flex items-center px-4 sm:px-5 py-2.5 bg-[#EEF5FA]">
+    <div className="rounded-xl border border-border overflow-hidden">
+      <div className="flex items-center px-4 sm:px-5 py-2.5 bg-background-blued-blue">
         {headers.map((h, i) => (
           <span
             key={h}
-            className={`font-body text-[10px] font-semibold uppercase tracking-wider text-[#234E70] ${
+            className={`font-body text-[10px] font-semibold uppercase tracking-wider text-primary ${
               i === 0 ? "flex-1 text-left" : "w-24 sm:w-28 text-right"
             } ${i > 0 ? "pl-3" : ""}`}
           >
@@ -60,7 +60,7 @@ function MenuTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
         <div
           key={ri}
           className={`flex items-center px-4 sm:px-5 py-3 ${
-            ri % 2 === 0 ? "bg-white" : "bg-[#FAF7F0]"
+            ri % 2 === 0 ? "bg-white" : "bg-backgroundd"
           } border-t border-[#F3F4F6]`}
         >
           {r.map((cell, ci) => (
@@ -68,8 +68,8 @@ function MenuTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
               key={ci}
               className={`font-body text-sm ${
                 ci === 0
-                  ? "flex-1 text-left text-[#1F2937]"
-                  : "w-24 sm:w-28 text-right font-semibold text-[#234E70]"
+                  ? "flex-1 text-left text-text"
+                  : "w-24 sm:w-28 text-right font-semibold text-primary"
               } ${ci > 0 ? "pl-3" : ""}`}
             >
               {cell}
@@ -99,7 +99,7 @@ function CategoryContent({ cat }: { cat: BridalCategory }) {
           <Icon className="w-5 h-5" style={{ color: "#C6A15B" }} />
         </span>
         <div>
-          <h3 className="font-heading font-semibold text-xl leading-tight text-[#234E70]">{cat.title}</h3>
+          <h3 className="font-heading font-semibold text-xl leading-tight text-primary">{cat.title}</h3>
           <p className="font-body text-xs mt-0.5 text-[#9CA3AF]">
             {count} {count === 1 ? "service" : "services"}
           </p>
@@ -118,9 +118,9 @@ function CategoryContent({ cat }: { cat: BridalCategory }) {
                 key={s.name}
                 className={`flex items-baseline gap-3 py-2.5 ${i > 0 ? "border-t border-[#F3F4F6]" : ""}`}
               >
-                <span className="text-[15px] font-body leading-snug text-[#1F2937]">{s.name}</span>
+                <span className="text-[15px] font-body leading-snug text-text">{s.name}</span>
                 <span className="flex-1 border-b border-dotted border-[#D3DAE2]" />
-                <span className="text-[15px] font-semibold font-body whitespace-nowrap text-[#234E70]">
+                <span className="text-[15px] font-semibold font-body whitespace-nowrap text-primary">
                   {s.price}
                 </span>
               </div>
@@ -178,7 +178,7 @@ function BridalModal({ onClose }: { onClose: () => void }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
-      className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center p-0 sm:p-6"
+      className="fixed inset-0 z-200 flex items-end sm:items-center justify-center p-0 sm:p-6"
       onClick={onClose}
     >
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
@@ -195,7 +195,7 @@ function BridalModal({ onClose }: { onClose: () => void }) {
         <div className="shrink-0 px-6 sm:px-8 py-5" style={{ background: "#234E70" }}>
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="font-body text-[10px] font-semibold uppercase tracking-[0.24em] mb-1 text-[#C6A15B]">
+              <p className="font-body text-[10px] font-semibold uppercase tracking-[0.24em] mb-1 text-accent">
                 Bridal Studio
               </p>
               <h2 className="font-heading font-semibold text-white text-2xl leading-tight">Bridal Collection</h2>
@@ -212,7 +212,7 @@ function BridalModal({ onClose }: { onClose: () => void }) {
         </div>
 
         {/* Mobile tab strip */}
-        <div className="sm:hidden flex gap-2 overflow-x-auto no-scrollbar px-4 py-3 border-b border-[#E5E7EB] bg-[#FAF7F0] shrink-0">
+        <div className="sm:hidden flex gap-2 overflow-x-auto no-scrollbar px-4 py-3 border-b border-border bg-background shrink-0">
           {bridalCategories.map((cat) => {
             const isActive = activeId === cat.id;
             const Icon = CATEGORY_ICONS[cat.id] ?? Sparkles;
@@ -236,7 +236,7 @@ function BridalModal({ onClose }: { onClose: () => void }) {
 
         <div className="flex flex-1 overflow-hidden">
           {/* Sidebar — desktop category nav */}
-          <aside className="hidden sm:flex flex-col w-56 bg-[#FAF7F0] border-r border-[#E5E7EB] overflow-y-auto no-scrollbar p-3 gap-1 shrink-0">
+          <aside className="hidden sm:flex flex-col w-56 bg-background border-r border-border overflow-y-auto no-scrollbar p-3 gap-1 shrink-0">
             {bridalCategories.map((cat) => {
               const isActive = activeId === cat.id;
               const Icon = CATEGORY_ICONS[cat.id] ?? Sparkles;
@@ -289,7 +289,7 @@ function BridalModal({ onClose }: { onClose: () => void }) {
         </div>
 
         {/* Footer */}
-        <div className="shrink-0 px-6 sm:px-8 py-4 border-t border-[#E5E7EB] bg-[#FAF7F0]">
+        <div className="shrink-0 px-6 sm:px-8 py-4 border-t border-border bg-background">
           <p className="font-body text-xs text-center text-[#9CA3AF]">
             Prices are indicative. Book a consultation for a personalised quote.
           </p>
@@ -307,7 +307,7 @@ export default function Bridal() {
 
   return (
     <>
-      <section id="bridal" className="section bg-[#FAF7F0]">
+      <section id="bridal" className="section bg-background">
         <div className="wrap">
           <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
             {/* Image */}
@@ -343,11 +343,11 @@ export default function Bridal() {
               transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
               <p className="label mb-4">Bridal Studio</p>
-              <h2 className="h-lg text-[#1F2937] mb-3 leading-snug">
+              <h2 className="h-lg text-text mb-3 leading-snug">
                 Look Perfect<br />On Your Day
               </h2>
               <div className="rule rule-left mb-7" />
-              <p className="text-[#6B7280] text-sm font-body leading-[1.9] mb-8 max-w-sm">
+              <p className="text-muted text-sm font-body leading-[1.9] mb-8 max-w-sm">
                 From hair to hemline — our dedicated bridal team crafts every detail ensuring you look and feel extraordinary on the most important day of your life.
               </p>
 
@@ -361,7 +361,7 @@ export default function Bridal() {
                   "Pre-Bridal Package",
                   "Body Care & Beauty Services",
                 ].map((s) => (
-                  <li key={s} className="flex items-center gap-3.5 font-body text-base font-medium leading-snug text-[#1F2937]">
+                  <li key={s} className="flex items-center gap-3.5 font-body text-base font-medium leading-snug text-text">
                     <span className="w-2 h-2 rotate-45 shrink-0" style={{ background: "#C6A15B" }} />
                     {s}
                   </li>

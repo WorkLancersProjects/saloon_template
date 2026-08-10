@@ -1,0 +1,1116 @@
+{
+  "products": [
+    {
+      "id": "hairstyle/men/low-fade",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/mid-fade",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/high-fade",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/skin-fade",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/burst-fade",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/temple-fade",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/taper-fade",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/french-crop",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/crew-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/buzz-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/military-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/flow-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/slick-back",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/pompadour",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/quiff",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/box-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/pop-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/mushroom-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/modern-mullet",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/textured-mullet",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/wolf-mullet",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/textured-crop",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/caesar-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/undercut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/men/curtain-bangs-men",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/layer-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/butterfly-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/wolf-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/straight-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/u-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/v-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/feather-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/step-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/bob-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/long-bob",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/pixie-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/curtain-bangs",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/face-framing",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/korean-layers",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/soft-waves",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/beach-waves",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/bridal-bun",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/messy-bun",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/creative-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "hairstyle/women/deep-u-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-haircut/trimming",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-haircut/hair-cut-normal",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-haircut/shaving-foam",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-haircut/hair-cutting-cream-foam-shaving",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-haircut/beard-setting-french-beard",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-haircut/hair-cut-shampoo",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-haircut/shampoo-setting-only",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-haircut/small-boys-cut-below-5-yrs",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-haircut/master-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-haircut/pop-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-haircut/mushroom-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-colour/garnier-no-ammonia",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-colour/any-herbal",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-colour/dreamronor",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-colour/loreal-majirel",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-colour/loreal-no-ammonia",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-colour/bigen-loreal-innova-revlon",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-colour/mehanti",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-straightening/hair-straightening",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-spa/hair-spa",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-spa/oil-therapy",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/face-pack",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/face-massage",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/fruit",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/pearl",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/papaya",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/fairness",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/diamond",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/wine",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/skin-whitening",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/skin-brightning",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/skin-glow",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/silver-bright",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/biotique",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/gold-facial-nature",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/oxygen",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/shahnas-facial-gold",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/o3-facial",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/charcoal-facial",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/anti-aginiing-facial",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/gal-vanic-facial",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-facial/detan-facial",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/shahnas-professional-oil",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/almond-root-strong",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/olive-oil-root-black-shine",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/hair-wash-only",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/navaratna-total-body-cool",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/amla-hair-fall-stoped",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/gingelly-oil-body-eyes-cool",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/coconut-oil-hair-healthy",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/all-oil-hot-extra",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/steaming",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/dandruff-treatment",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/rose-marry-oil-hair-re-growth",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-massage/biotiaque-anti-hair-fall-treatment",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-bleach/oxy-bleach",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-bleach/gold-bleach",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-bleach/fruit-bleach",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-bleach/detan",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-bleach/lacto-bleach",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-bleach/neck-bleach",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-cleanup/fruit-clean-up",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-cleanup/wine-clean-up",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-cleanup/papaya-clean-up",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-cleanup/glow-clean-up",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-cleanup/gold-clean-up",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-other/warts-pimple-removal",
+      "asset_url": ""
+    },
+    {
+      "id": "service/men/men-other/ear-punching",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-manicure/manicure",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-manicure/spa-manicure-with-pack",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-manicure/crystal-manicure",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-oil-massage/rosemary-oil-hair-re-growth",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-oil-massage/almond-oil",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-oil-massage/coconut-oil",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-oil-massage/shahnas-oil",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-oil-massage/olive-oil",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-oil-massage/biotique-herbal-oil",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-pedicure/pedicure",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-pedicure/spa-pedicure-with-pack",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-pedicure/crystal-pedicure",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-spa/hair-spa-loreal",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-spa/dandruff-control",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-spa/matrix-spa",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-spa/streax-spa",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-straightening/wash-blow-dry",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-straightening/hair-ironing",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-straightening/hair-curling",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-straightening/hair-do-styling",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-straightening/perming",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-straightening/straightening",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-makeup/makeup",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-makeup/saree-dropping",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-makeup/party-makeup",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-makeup/bridal-makeup",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-makeup/bridal-2-days-makeup",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-makeup/saree-box-folding",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-massage/foot-massage",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-massage/arms-massage",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-massage/back-neck-massage",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-massage/body-scrub",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-massage/body-massage",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-massage/body-facial",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-other/warts-pimple-removal",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-other/ear-punching",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-detan/face-neck",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-detan/raaga-deten",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-detan/lacto-bleach",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-detan/detan-pack",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-cleanup/fruit-cleanup",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-cleanup/papaya-cleanup",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-cleanup/skin-glow",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-cleanup/gold-cleanup",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-cleanup/diamond",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-cleanup/pila-mask",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-threading/eyebrows",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-threading/upper-lip",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-threading/forehead",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-threading/chin",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-threading/side-face",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-threading/full-face-threading",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-kids-cut/mushroom-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-kids-cut/baby-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-kids-cut/pop-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-kids-cut/dora-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-kids-cut/shairi-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-kids-cut/baby-shalini-cutting",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-kids-cut/ladies-boy-cutting",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-haircut/straight-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-haircut/u-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-haircut/deep-u-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-haircut/v-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-haircut/feather-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-haircut/step-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-haircut/layer-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-haircut/creative-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-haircut/front-cut",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-colour/black-henna",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-colour/brown-henna",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-colour/loreal-no-ammonia",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-colour/garniyar-ammonia-free",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-colour/highlights-one-line",
+      "asset_url": ""
+    },
+    {
+      "id": "service/women/women-colour/your-product-hair-colour",
+      "asset_url": ""
+    },
+    {
+      "id": "service/kids/kids-haircut/boys-hair-cut-below-5",
+      "asset_url": ""
+    },
+    {
+      "id": "service/kids/kids-haircut/boys-hair-cut-5-10-yrs",
+      "asset_url": ""
+    },
+    {
+      "id": "service/kids/kids-haircut/girls-hair-cut-below-5",
+      "asset_url": ""
+    },
+    {
+      "id": "service/kids/kids-haircut/girls-hair-cut-5-10-yrs",
+      "asset_url": ""
+    },
+    {
+      "id": "service/kids/kids-haircut/hair-wash-blow-dry-kids",
+      "asset_url": ""
+    },
+    {
+      "id": "package/pkg-groom",
+      "asset_url": ""
+    },
+    {
+      "id": "package/pkg-basic-men",
+      "asset_url": ""
+    },
+    {
+      "id": "package/pkg-bridal",
+      "asset_url": ""
+    },
+    {
+      "id": "package/pkg-pre-bridal",
+      "asset_url": ""
+    },
+    {
+      "id": "package/pkg-women-glow",
+      "asset_url": ""
+    },
+    {
+      "id": "package/pkg-couple",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/hair-styling/wash-blow-dry",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/hair-styling/hair-ironing",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/hair-styling/hair-curling",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/hair-styling/hair-do-styling",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/hair-styling/perming",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/hair-styling/straightening",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/makeup/makeup",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/makeup/saree-draping",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/makeup/party-makeup",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/makeup/bridal-makeup",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/makeup/bridal-2-days-makeup",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/makeup/saree-box-folding",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/body-care/foot-massage",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/body-care/arms-massage",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/body-care/back-neck-massage",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/body-care/body-scrub",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/body-care/body-massage",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/body-care/body-facial",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/beauty/warts-pimple-removal",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/beauty/ear-punching",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/lip-bleach/oxy",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/lip-bleach/fruit",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/lip-bleach/gold",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/face-bleach/oxy",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/face-bleach/fruit",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/face-bleach/gold",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/back-neck-bleach/oxy",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/back-neck-bleach/fruit",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/back-neck-bleach/gold",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/under-arms-bleach/oxy",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/under-arms-bleach/fruit",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/under-arms-bleach/gold",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/full-arms-bleach/oxy",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/full-arms-bleach/fruit",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/full-arms-bleach/gold",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/half-arms-bleach/oxy",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/half-arms-bleach/fruit",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/half-arms-bleach/gold",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/full-legs-bleach/oxy",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/full-legs-bleach/fruit",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/full-legs-bleach/gold",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/half-legs-bleach/oxy",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/half-legs-bleach/fruit",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/half-legs-bleach/gold",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/blouse-line-bleach/oxy",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/blouse-line-bleach/fruit",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/blouse-line-bleach/gold",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/full-body-bleach/oxy",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/full-body-bleach/fruit",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/bleach/full-body-bleach/gold",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/detan/face-neck",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/detan/raaga-detan",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/detan/lacto-bleach",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/detan/detan-pack",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/cleanup/fruit-cleanup",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/cleanup/papaya-cleanup",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/cleanup/skin-glow",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/cleanup/gold-cleanup",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/cleanup/diamond",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/cleanup/pila-mask",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/threading/eyebrows",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/threading/upper-lip",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/threading/forehead",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/threading/chin",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/threading/side-face",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/threading/full-face-threading",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/upper-lip-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/chin-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/cheeks-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/full-face-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/under-arms-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/full-arms-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/half-arms-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/full-legs-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/half-legs-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/blouse-line-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/full-body-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/bikini-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/stomach-wax",
+      "asset_url": ""
+    },
+    {
+      "id": "bridal/waxing/lower-back-wax",
+      "asset_url": ""
+    }
+  ]
+}

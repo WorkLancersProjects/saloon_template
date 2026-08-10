@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { X, ArrowRight, IndianRupee, ChevronDown } from "lucide-react";
 import { servicesData, type ServiceCategory } from "@/data/services";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import { ArrowRight, ChevronDown, IndianRupee, X } from "lucide-react";
+import { useRef, useState } from "react";
 
 /* Curated, close-match imagery per category — visual anchor of the card */
 const CATEGORY_IMAGES: Record<string, string> = {
@@ -14,20 +14,22 @@ const CATEGORY_IMAGES: Record<string, string> = {
   "men-bleach":          "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&auto=format&fit=crop",
   "men-cleanup":         "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&auto=format&fit=crop",
   "men-spa":             "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&auto=format&fit=crop",
-  "men-packages":        "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800&auto=format&fit=crop",
+  "men-straightening":  "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop",
+  "men-other":          "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800&auto=format&fit=crop",
   "women-haircut":       "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop",
   "women-colour":        "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&auto=format&fit=crop",
   "women-spa":           "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&auto=format&fit=crop",
   "women-straightening": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop",
   "women-makeup":        "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&auto=format&fit=crop",
-  "women-waxing":        "https://images.unsplash.com/photo-1571646034647-52e6ea84b28c?w=800&auto=format&fit=crop",
   "women-threading":     "https://images.unsplash.com/photo-1500840216050-6ffa99d75160?w=800&auto=format&fit=crop",
-  "women-bleach":        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&auto=format&fit=crop",
   "women-cleanup":       "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&auto=format&fit=crop",
   "women-detan":         "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop",
   "women-manicure":      "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&auto=format&fit=crop",
   "women-pedicure":      "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=800&auto=format&fit=crop",
   "women-massage":       "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&auto=format&fit=crop",
+  "women-oil-massage":   "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&auto=format&fit=crop",
+  "women-other":         "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800&auto=format&fit=crop",
+  "women-kids-cut":      "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&auto=format&fit=crop",
   "kids-haircut":        "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&auto=format&fit=crop",
 };
 
@@ -175,7 +177,7 @@ function CategoryCard({ cat, onClick, delay }: { cat: ServiceCategory; onClick: 
       style={{ borderRadius: "14px", border: "1px solid #E5E7EB" }}
     >
       {/* 1. Image — primary visual anchor (full width, 4:3) */}
-      <div className="relative w-full aspect-[4/3] overflow-hidden" style={{ background: "#EEF5FA" }}>
+      <div className="relative w-full aspect-4/3 overflow-hidden" style={{ background: "#EEF5FA" }}>
         <img
           src={img}
           alt={cat.title}

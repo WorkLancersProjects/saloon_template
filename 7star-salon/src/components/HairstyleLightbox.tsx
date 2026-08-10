@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import { X, ChevronLeft, ChevronRight, Clock } from "lucide-react";
 import type { Hairstyle } from "@/data/hairstyles";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, Clock, X } from "lucide-react";
+import Image from "next/image";
+import { useCallback, useEffect } from "react";
 
 interface Props {
   hairstyle: Hairstyle | null;
@@ -50,7 +50,7 @@ export default function HairstyleLightbox({ hairstyle, all, onClose, onNavigate 
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.28 }}
-          className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-8"
+          className="fixed inset-0 z-200 flex items-center justify-center p-4 sm:p-8"
           onClick={onClose}
         >
           {/* Blurred backdrop */}

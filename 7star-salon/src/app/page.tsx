@@ -1,8 +1,7 @@
 import Navbar        from "@/components/Navbar";
 import Hero           from "@/components/Hero";
 import WhyChooseUs    from "@/components/WhyChooseUs";
-import MensHairstyles from "@/components/MensHairstyles";
-import WomensHairstyles from "@/components/WomensHairstyles";
+import Hairstyles    from "@/components/Hairstyles";
 import Services       from "@/components/Services";
 import Packages       from "@/components/Packages";
 import Bridal         from "@/components/Bridal";
@@ -20,10 +19,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <div id="hairstyles">
-          <MensHairstyles />
-          <WomensHairstyles />
-        </div>
+        <Hairstyles />
         <Services />
         <Packages />
         <Bridal />
