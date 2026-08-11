@@ -1,9 +1,9 @@
 "use client";
 
+import { kidsHairstyles, mensHairstyles, womensHairstyles } from "@/data/hairstyles";
 import { AnimatePresence, motion } from "framer-motion";
 import { Search, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { mensHairstyles, womensHairstyles, kidsHairstyles } from "@/data/hairstyles";
 
 // Categories lists
 const MEN_LIST = [
@@ -176,7 +176,7 @@ export default function HairstyleCatalogue({ isOpen, onClose }: HairstyleCatalog
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 md:p-10 bg-black/60 backdrop-blur-md overflow-hidden"
+          className="fixed inset-0 z-100 flex items-center justify-center p-3 sm:p-6 md:p-10 bg-black/60 backdrop-blur-md overflow-hidden"
           onClick={onClose}
           role="dialog"
           aria-modal="true"
@@ -187,17 +187,17 @@ export default function HairstyleCatalogue({ isOpen, onClose }: HairstyleCatalog
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 15 }}
             transition={{ type: "spring", damping: 25, stiffness: 220 }}
-            className="relative w-full max-w-4xl max-h-[90vh] bg-[#FAF7F0] rounded-2xl shadow-[0_24px_50px_rgba(0,0,0,0.3)] overflow-hidden border border-[#E5DFCF] p-3 sm:p-5 flex flex-col"
+            className="relative w-full max-w-4xl max-h-[90vh] bg-background rounded-2xl shadow-[0_24px_50px_rgba(0,0,0,0.3)] overflow-hidden border border-[#E5DFCF] p-3 sm:p-5 flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Outer double border border style */}
-            <div className="absolute inset-2 border-4 border-double border-[#C6A15B]/30 rounded-xl pointer-events-none z-10" />
+            <div className="absolute inset-2 border-4 border-double border-accent/30 rounded-xl pointer-events-none z-10" />
 
             {/* Corner Ornamental Accents */}
-            <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-[#C6A15B]/40 pointer-events-none z-10" />
-            <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-[#C6A15B]/40 pointer-events-none z-10" />
-            <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-[#C6A15B]/40 pointer-events-none z-10" />
-            <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-[#C6A15B]/40 pointer-events-none z-10" />
+            <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-accent/40inter-events-none z-10" />
+            <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-accent/40inter-events-none z-10" />
+            <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-accent/40inter-events-none z-10" />
+            <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-accent/40 pointer-events-none z-10" />
 
             {/* Content Wrapper */}
             <div className="relative flex flex-col flex-1 overflow-hidden z-20">
@@ -207,7 +207,7 @@ export default function HairstyleCatalogue({ isOpen, onClose }: HairstyleCatalog
                 {/* Close Button */}
                 <button
                   onClick={onClose}
-                  className="absolute top-2 right-2 p-2 rounded-full text-[#6B7280] hover:text-[#234E70] hover:bg-[#234E70]/5 transition-colors focus:outline-none focus:ring-2 focus:ring-[#234E70]"
+                  className="absolute top-2 right-2 p-2 rounded-full text-mutedehover:text-primarhover:bg-primary/5ransition-colors focus:outline-none focus:ring-2 focus:ring-primary"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -224,25 +224,25 @@ export default function HairstyleCatalogue({ isOpen, onClose }: HairstyleCatalog
                       e.currentTarget.style.display = "none";
                     }}
                   />
-                  <div className="font-heading font-bold text-[10px] tracking-[0.25em] text-[#C6A15B] mt-1">
+                  <div className="font-heading font-bold text-[10px] tracking-[0.25em] text-accent mt-1">
                     7STAR SALON
                   </div>
                 </div>
 
                 {/* Title */}
-                <h2 className="font-heading text-2xl sm:text-3xl font-bold tracking-widest text-[#234E70] uppercase">
+                <h2 className="font-heading text-2xl sm:text-3xl font-bold tracking-widest text-primary uppercase">
                   Hairstyle Menu
                 </h2>
 
                 {/* Decorative Diamond lines */}
                 <div className="flex items-center gap-3 my-1">
-                  <div className="w-8 sm:w-16 h-[1px] bg-[#C6A15B]/40" />
-                  <span className="text-[#C6A15B] text-xs">✦</span>
-                  <div className="w-8 sm:w-16 h-[1px] bg-[#C6A15B]/40" />
+                  <div className="w-8 sm:w-16 h-px bg-accent/40" />
+                  <span className="text-accent text-xs">✦</span>
+                  <div className="w-8 sm:w-16 h-px bg-accent/40" />
                 </div>
 
                 {/* Subtitle */}
-                <p className="font-body text-xs italic text-[#6B7280] tracking-wide">
+                <p className="font-body text-xs italic text-muted tracking-wide">
                   Find your perfect style
                 </p>
               </div>
@@ -250,7 +250,7 @@ export default function HairstyleCatalogue({ isOpen, onClose }: HairstyleCatalog
               {/* Dynamic Search Bar */}
               <div className="px-6 sm:px-12 py-2 flex justify-center shrink-0">
                 <div className="relative w-full max-w-md">
-                  <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#6B7280]">
+                  <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted">
                     <Search className="w-4 h-4" />
                   </span>
                   <input
@@ -259,12 +259,12 @@ export default function HairstyleCatalogue({ isOpen, onClose }: HairstyleCatalog
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search any hairstyle..."
-                    className="w-full pl-9 pr-8 py-2 text-sm bg-white border border-[#E5DFCF] rounded-lg text-[#1F2937] placeholder-[#9CA3AF] focus:outline-none focus:border-[#234E70] focus:ring-1 focus:ring-[#234E70] transition-colors"
+                    className="w-full pl-9 pr-8 py-2 text-sm bg-white border border-[#E5DFCF] rounded-lg text-text placeholder-[#9CA3AF] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                   />
                   {searchQuery && (
                     <button
                       onClick={() => setSearchQuery("")}
-                      className="absolute inset-y-0 right-0 flex items-center pr-3 text-[#9CA3AF] hover:text-[#1F2937]"
+                      className="absolute inset-y-0 right-0 flex items-center pr-3 text-[#9CA3AF] hover:text-text"
                       aria-label="Clear search"
                     >
                       <X className="w-4 h-4" />
@@ -275,7 +275,7 @@ export default function HairstyleCatalogue({ isOpen, onClose }: HairstyleCatalog
 
               {/* Category Pills Navigation - Only when NOT searching */}
               <div className="px-6 sm:px-12 pb-3 flex flex-col items-center shrink-0">
-                <div className="inline-flex rounded-lg p-0.5 bg-[#FAF7F0] border border-[#E5DFCF] w-full max-w-md">
+                <div className="inline-flex rounded-lg p-0.5 bg-background border border-[#E5DFCF] w-full max-w-md">
                   {(["MEN", "WOMEN", "KIDS"] as const).map((tab) => {
                     const isActive = activeTab === tab;
                     return (
@@ -284,8 +284,8 @@ export default function HairstyleCatalogue({ isOpen, onClose }: HairstyleCatalog
                         onClick={() => handleTabChange(tab)}
                         className={`flex-1 py-1.5 text-xs font-body font-bold tracking-widest rounded-md uppercase transition-all duration-300 ${
                           isActive
-                            ? "bg-[#234E70] text-white shadow-sm"
-                            : "text-[#234E70] hover:bg-[#234E70]/5"
+                            ? "bg-primary text-white shadow-sm"
+                            : "text-primary hover:bg-primary/5"
                         }`}
                       >
                         {tab}
@@ -296,7 +296,7 @@ export default function HairstyleCatalogue({ isOpen, onClose }: HairstyleCatalog
 
                 {/* Search status / count indicator */}
                 {isSearchActive && (
-                  <div className="mt-3 text-xs font-body text-[#C6A15B] font-medium tracking-wide">
+                  <div className="mt-3 text-xs font-body text-accent font-medium tracking-wide">
                     {displayList.length === 0
                       ? "No hairstyles found"
                       : `${displayList.length} hairstyle${displayList.length === 1 ? "" : "s"} found`}
@@ -317,10 +317,10 @@ export default function HairstyleCatalogue({ isOpen, onClose }: HairstyleCatalog
                   >
                     {displayList.length === 0 ? (
                       <div className="text-center py-16 flex flex-col items-center justify-center">
-                        <p className="text-base font-body font-semibold text-[#234E70] mb-1">
+                        <p className="text-base font-body font-semibold text-primary mb-1">
                           No hairstyles found
                         </p>
-                        <p className="text-xs font-body text-[#6B7280]">
+                        <p className="text-xs font-body text-muted">
                           Try another hairstyle name
                         </p>
                       </div>
@@ -337,13 +337,13 @@ export default function HairstyleCatalogue({ isOpen, onClose }: HairstyleCatalog
                                 delay: Math.min(index * 0.015, 0.2),
                                 duration: 0.2,
                               }}
-                              className="py-4 border-b border-[#E5DFCF]/50 last:border-b-0 md:[&:nth-last-child(-n+2)]:border-b-0 flex flex-col justify-center"
+                              className="py-4 border-b border-[#E5DFCF]/50 last:border-b-0 md:nth-last-[-n+2]:border-b-0 flex flex-col justify-center"
                             >
                               <div className="flex justify-between items-baseline gap-4">
-                                <h3 className="font-heading font-bold text-sm tracking-wide text-[#234E70] uppercase">
+                                <h3 className="font-heading font-bold text-sm tracking-wide text-primary uppercase">
                                   {h.name}
                                 </h3>
-                                <span className="font-heading font-semibold text-sm text-[#C6A15B] shrink-0">
+                                <span className="font-heading font-semibold text-sm text-accent shrink-0">
                                   {h.oldPrice || h.price}
                                 </span>
                               </div>
