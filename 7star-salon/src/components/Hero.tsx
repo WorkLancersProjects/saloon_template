@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import HairstyleCatalogue from "./HaitstyleCatalogue";
 
 const BG_IMAGES = [
   "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=1920&q=85",
@@ -24,6 +25,7 @@ const stats = [
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const [imgIdx, setImgIdx] = useState(0);
+  const [catalogueOpen, setCatalogueOpen] = useState(false);
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
@@ -137,7 +139,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 w-full sm:w-auto mb-20"
         >
           <button
-            onClick={() => go("hairstyles")}
+            onClick={() => setCatalogueOpen(true)}
             className="btn group rounded-xl px-10 py-4 text-base w-full sm:w-auto justify-center shadow-[0_12px_32px_rgba(35,78,112,0.45)]"
           >
             View Hairstyles
@@ -200,6 +202,8 @@ export default function Hero() {
           <ChevronDown className="w-4 h-4 text-white/40" />
         </motion.div>
       </motion.div>
+
+      <HairstyleCatalogue isOpen={catalogueOpen} onClose={() => setCatalogueOpen(false)} />
     </section>
   );
 }

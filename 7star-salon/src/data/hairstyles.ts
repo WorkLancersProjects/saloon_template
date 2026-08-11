@@ -23,7 +23,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Square, Diamond",
     maintenance: "Low",
     time: "30 min",
-    price: "₹250",
+    price: "₹150",
     suitableHair: "All Hair Types",
   },
   {
@@ -36,7 +36,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "All Face Shapes",
     maintenance: "Low",
     time: "30 min",
-    price: "₹250",
+    price: "₹150",
     suitableHair: "All Hair Types",
   },
   {
@@ -49,7 +49,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Long",
     maintenance: "Medium",
     time: "35 min",
-    price: "₹300",
+    price: "₹150",
     suitableHair: "Straight, Wavy",
   },
   {
@@ -62,7 +62,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Diamond",
     maintenance: "High",
     time: "40 min",
-    price: "₹350",
+    price: "₹150",
     suitableHair: "All Hair Types",
   },
   {
@@ -75,7 +75,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Round",
     maintenance: "Medium",
     time: "40 min",
-    price: "₹350",
+    price: "₹150",
     suitableHair: "Curly, Wavy",
   },
   {
@@ -88,7 +88,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Square, Oval",
     maintenance: "Low",
     time: "25 min",
-    price: "₹200",
+    price: "₹150",
     suitableHair: "All Hair Types",
   },
   {
@@ -101,7 +101,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "All Face Shapes",
     maintenance: "Low",
     time: "30 min",
-    price: "₹250",
+    price: "₹150",
     suitableHair: "All Hair Types",
   },
   {
@@ -114,7 +114,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Round, Square",
     maintenance: "Low",
     time: "30 min",
-    price: "₹250",
+    price: "₹150",
     suitableHair: "Straight, Wavy",
   },
   {
@@ -127,7 +127,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Square",
     maintenance: "Low",
     time: "25 min",
-    price: "₹200",
+    price: "₹150",
     suitableHair: "All Hair Types",
   },
   {
@@ -153,7 +153,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Square",
     maintenance: "Low",
     time: "25 min",
-    price: "₹200",
+    price: "₹150",
     suitableHair: "All Hair Types",
   },
   {
@@ -166,7 +166,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Heart",
     maintenance: "Medium",
     time: "40 min",
-    price: "₹350",
+    price: "₹150",
     suitableHair: "Wavy, Straight",
   },
   {
@@ -179,7 +179,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Square",
     maintenance: "Medium",
     time: "35 min",
-    price: "₹300",
+    price: "₹150",
     suitableHair: "Straight, Fine",
   },
   {
@@ -192,7 +192,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Round",
     maintenance: "High",
     time: "45 min",
-    price: "₹400",
+    price: "₹150",
     suitableHair: "Thick, Straight",
   },
   {
@@ -205,7 +205,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Square",
     maintenance: "High",
     time: "45 min",
-    price: "₹400",
+    price: "₹150",
     suitableHair: "Thick, Wavy",
   },
   {
@@ -218,7 +218,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Long",
     maintenance: "Medium",
     time: "35 min",
-    price: "₹350",
+    price: "₹150",
     suitableHair: "Curly, Afro",
   },
   {
@@ -231,7 +231,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "All Face Shapes",
     maintenance: "Medium",
     time: "35 min",
-    price: "₹300",
+    price: "₹150",
     suitableHair: "Fine, Straight",
   },
   {
@@ -244,7 +244,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Long",
     maintenance: "Low",
     time: "30 min",
-    price: "₹250",
+    price: "₹150",
     suitableHair: "Fine, Straight",
   },
   {
@@ -257,7 +257,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Square",
     maintenance: "Medium",
     time: "45 min",
-    price: "₹400",
+    price: "₹150",
     suitableHair: "Wavy, Straight",
   },
   {
@@ -270,7 +270,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Square",
     maintenance: "Medium",
     time: "45 min",
-    price: "₹400",
+    price: "₹150",
     suitableHair: "Medium Thickness",
   },
   {
@@ -283,7 +283,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Long",
     maintenance: "High",
     time: "55 min",
-    price: "₹500",
+    price: "₹150",
     suitableHair: "Thick, Wavy",
   },
   {
@@ -296,7 +296,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "All Face Shapes",
     maintenance: "Low",
     time: "30 min",
-    price: "₹300",
+    price: "₹150",
     suitableHair: "All Hair Types",
   },
   {
@@ -309,7 +309,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Round, Heart",
     maintenance: "Low",
     time: "25 min",
-    price: "₹200",
+    price: "₹150",
     suitableHair: "Straight, Wavy",
   },
   {
@@ -322,7 +322,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Square",
     maintenance: "Medium",
     time: "40 min",
-    price: "₹350",
+    price: "₹150",
     suitableHair: "Thick, Straight",
   },
   {
@@ -335,7 +335,7 @@ export const mensHairstyles: Hairstyle[] = [
     bestFor: "All Face Shapes",
     maintenance: "Medium",
     time: "35 min",
-    price: "₹300",
+    price: "₹150",
     suitableHair: "Straight, Wavy",
   },
 ];
@@ -351,7 +351,7 @@ export const womensHairstyles: Hairstyle[] = [
     bestFor: "All Face Shapes",
     maintenance: "Low",
     time: "45 min",
-    price: "₹499",
+    price: "₹600",
     suitableHair: "All Hair Types",
   },
   {
@@ -364,7 +364,7 @@ export const womensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Heart",
     maintenance: "Medium",
     time: "50 min",
-    price: "₹599",
+    price: "₹600",
     suitableHair: "Medium to Thick",
   },
   {
@@ -377,7 +377,7 @@ export const womensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Square",
     maintenance: "Medium",
     time: "55 min",
-    price: "₹699",
+    price: "₹600",
     suitableHair: "Thick, Wavy",
   },
   {
@@ -390,7 +390,7 @@ export const womensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Long",
     maintenance: "Low",
     time: "35 min",
-    price: "₹349",
+    price: "₹150",
     suitableHair: "All Hair Types",
   },
   {
@@ -403,7 +403,7 @@ export const womensHairstyles: Hairstyle[] = [
     bestFor: "Round, Oval",
     maintenance: "Low",
     time: "40 min",
-    price: "₹399",
+    price: "₹200",
     suitableHair: "Thin to Medium",
   },
   {
@@ -416,7 +416,7 @@ export const womensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Square",
     maintenance: "Low",
     time: "40 min",
-    price: "₹399",
+    price: "₹300",
     suitableHair: "All Hair Types",
   },
   {
@@ -429,7 +429,7 @@ export const womensHairstyles: Hairstyle[] = [
     bestFor: "Round, Square",
     maintenance: "Medium",
     time: "50 min",
-    price: "₹549",
+    price: "₹600",
     suitableHair: "Fine, Thin",
   },
   {
@@ -442,7 +442,7 @@ export const womensHairstyles: Hairstyle[] = [
     bestFor: "All Face Shapes",
     maintenance: "Low",
     time: "45 min",
-    price: "₹499",
+    price: "₹600",
     suitableHair: "All Hair Types",
   },
   {
@@ -507,7 +507,7 @@ export const womensHairstyles: Hairstyle[] = [
     bestFor: "All Face Shapes",
     maintenance: "Low",
     time: "35 min",
-    price: "₹349",
+    price: "₹600",
     suitableHair: "All Hair Types",
   },
   {
@@ -520,7 +520,7 @@ export const womensHairstyles: Hairstyle[] = [
     bestFor: "Round, Oval",
     maintenance: "Medium",
     time: "55 min",
-    price: "₹699",
+    price: "₹600",
     suitableHair: "Fine, Straight",
   },
   {
@@ -585,7 +585,7 @@ export const womensHairstyles: Hairstyle[] = [
     bestFor: "All Face Shapes",
     maintenance: "High",
     time: "75 min",
-    price: "₹999",
+    price: "₹600",
     suitableHair: "All Hair Types",
   },
   {
@@ -598,9 +598,116 @@ export const womensHairstyles: Hairstyle[] = [
     bestFor: "Oval, Heart",
     maintenance: "Low",
     time: "45 min",
-    price: "₹449",
+    price: "₹250",
     suitableHair: "Medium to Thick",
   },
 ];
 
-export const allHairstyles = [...mensHairstyles, ...womensHairstyles];
+export const kidsHairstyles: Hairstyle[] = [
+  {
+    id: "mushroom-cut-kids",
+    name: "Mushroom Cut",
+    description: "A cute, rounded bowl-like shape perfect for kids — easy to maintain and stylish.",
+    image: "https://i.pinimg.com/736x/60/bb/50/60bb507fc5537d8aaa00ef9699811d86.jpg",
+    gender: "men",
+    tags: ["Short", "Kids"],
+    bestFor: "All Face Shapes",
+    maintenance: "Low",
+    time: "20 min",
+    price: "₹200",
+    suitableHair: "All Hair Types",
+  },
+  {
+    id: "baby-cut",
+    name: "Baby Cut",
+    description: "A simple, clean cut designed specifically for the little ones — quick and comfortable.",
+    image: "https://cdn.shopify.com/s/files/1/0029/0868/4397/files/french-crop-mid-skin-fade-haircut-men.webp?v=1769141430",
+    gender: "men",
+    tags: ["Short", "Kids"],
+    bestFor: "All Face Shapes",
+    maintenance: "Low",
+    time: "15 min",
+    price: "₹200",
+    suitableHair: "All Hair Types",
+  },
+  {
+    id: "pop-cut-kids",
+    name: "Pop Cut",
+    description: "A trendy, textured top with clean sides — inspired by K-pop aesthetics for young ones.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfs2hgXlxHB47ck-xGOdmX9Ea8IWtGNZHcZYJ3YghL4oiXQXyIRREkcxA&s=10",
+    gender: "men",
+    tags: ["Short", "Kids"],
+    bestFor: "All Face Shapes",
+    maintenance: "Low",
+    time: "20 min",
+    price: "₹200",
+    suitableHair: "All Hair Types",
+  },
+  {
+    id: "dora-cut",
+    name: "Dora Cut",
+    description: "A fun, bob-like cut with bangs — inspired by the beloved cartoon character.",
+    image: "https://i.pinimg.com/236x/0e/96/ae/0e96ae30d0e08d224db88c928f14b193.jpg",
+    gender: "women",
+    tags: ["Short", "Kids"],
+    bestFor: "All Face Shapes",
+    maintenance: "Low",
+    time: "20 min",
+    price: "₹200",
+    suitableHair: "All Hair Types",
+  },
+  {
+    id: "shairi-cut",
+    name: "Shairi Cut",
+    description: "A stylish, layered cut with a touch of flair — perfect for kids who want to stand out.",
+    image: "https://i.pinimg.com/736x/d2/f7/0b/d2f70bb146632f21b73b034810f7c67a.jpg",
+    gender: "women",
+    tags: ["Short", "Kids"],
+    bestFor: "All Face Shapes",
+    maintenance: "Low",
+    time: "20 min",
+    price: "₹200",
+    suitableHair: "All Hair Types",
+  },
+  {
+    id: "baby-shalini-cutting",
+    name: "Baby Shalini Cutting",
+    description: "A cute, traditional cut with soft layers — ideal for young girls.",
+    image: "https://www.fabmood.com/inspiration/wp-content/uploads/2025/02/85741047000048.jpg",
+    gender: "women",
+    tags: ["Short", "Kids"],
+    bestFor: "All Face Shapes",
+    maintenance: "Low",
+    time: "20 min",
+    price: "₹200",
+    suitableHair: "All Hair Types",
+  },
+  {
+    id: "ladies-boy-cutting",
+    name: "Ladies Boy Cutting",
+    description: "A short, boyish cut for girls who prefer a low-maintenance, sporty look.",
+    image: "https://www.nishhair.com/cdn/shop/files/pixiewig.jpg?v=1701762100",
+    gender: "women",
+    tags: ["Short", "Kids"],
+    bestFor: "All Face Shapes",
+    maintenance: "Low",
+    time: "20 min",
+    price: "₹250",
+    suitableHair: "All Hair Types",
+  },
+  {
+    id: "small-boys-cut",
+    name: "Small Boys Cut",
+    description: "A simple, clean haircut for young boys — neat and easy to manage.",
+    image: "https://cdn.shopify.com/s/files/1/0899/2676/2789/files/Classic_Crew_Cut.jpg?v=1730411406",
+    gender: "men",
+    tags: ["Short", "Kids"],
+    bestFor: "All Face Shapes",
+    maintenance: "Low",
+    time: "15 min",
+    price: "₹120",
+    suitableHair: "All Hair Types",
+  },
+];
+
+export const allHairstyles = [...mensHairstyles, ...womensHairstyles, ...kidsHairstyles];
